@@ -1,0 +1,165 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" role="navigation" aria-label="Main navigation">
+    <div class="container">
+        <!-- Logo Brand -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="{% url 'pages_frontend:home' %}">
+            <img src="{% static 'images/holcare.png' %}" alt="Holcare Health & Wellness Clinic Logo" style="height: 50px; width: auto; object-fit: contain;">
+        </a>
+        
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='services' %}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='providers' %}">Our Doctors</a>
+                </li>
+                
+                <!-- Resources Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fw-500" href="#" id="resourcesDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="resourcesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='blog' %}">
+                            <i class="fas fa-newspaper me-2" style="color: var(--primary-color);"></i>Blog & Articles
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='resources' %}">
+                            <i class="fas fa-book-medical me-2" style="color: var(--primary-color);"></i>Learning Center
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/faq/">
+                            <i class="fas fa-question-circle me-2" style="color: var(--primary-color);"></i>FAQ
+                        </a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='contact' %}">Contact</a>
+                </li>
+                
+                <!-- CTA Button -->
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-danger btn-sm px-3 fw-600" href="{% url 'pages_frontend:page-detail' slug='appointments' %}">
+                        <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navbar {
+    padding: 0.75rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.brand-text {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.brand-subtext {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: #333 !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #fff5f3;
+    color: var(--primary-color);
+}
+
+.dropdown-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-danger:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(221, 39, 39, 0.3);
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 40px !important;
+    }
+
+    .brand-text {
+        font-size: 16px !important;
+    }
+
+    .brand-subtext {
+        font-size: 10px !important;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+}
+</style>

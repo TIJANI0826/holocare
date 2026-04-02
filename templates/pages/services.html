@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Explore our comprehensive medical services and specialties{% endblock %}
+
+{% block content %}
+<!-- Services Hero Section -->
+<div class="services-hero text-white py-5" style="background: linear-gradient(135deg, #dd2727 0%, #c21a1a 100%);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Advanced Functional Medicine Services</h1>
+        <p class="lead mb-0">Cutting-edge therapies and comprehensive care to treat the root causes of health conditions</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <section>
+        <div class="row g-4">
+            <!-- Service Card 1: Hyperbaric Oxygen Therapy (HBOT) -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-lungs me-3" style="font-size: 24px;"></i>Hyperbaric Oxygen Therapy (HBOT)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">A treatment where patients breathe 100% oxygen in a pressurized chamber. Improves oxygen delivery, reduces inflammation, and promotes faster recovery.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Who it's for:</strong> Stroke recovery patients, Chronic fatigue sufferers, Diabetic patients, Neurological conditions
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Session: 60-90 minutes | Painless
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Book HBOT Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 2: Red Light Therapy & PEMF -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-lightbulb me-3" style="font-size: 24px;"></i>Red Light Therapy & PEMF
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">Red Light Therapy uses light wavelengths to support cellular health. PEMF uses electromagnetic waves to stimulate cells and promote healing.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Who it's for:</strong> Chronic pain, Injury recovery, Fatigue, Skin conditions
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Non-invasive treatments
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Schedule Therapy
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 3: Laboratory Services -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #009688 0%, #007a66 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-flask me-3" style="font-size: 24px;"></i>Laboratory Services
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">Specialized diagnostic testing to identify root causes of health conditions. Accurate and fast results that support treatment decisions.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Features:</strong> Comprehensive testing, Fast results, Treatment guidance
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Quick turnaround times
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Book Lab Tests
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 4: Health Coaching -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-user-friends me-3" style="font-size: 24px;"></i>Health Coaching
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">Personalized lifestyle improvement guidance, habit building, and accountability support to help you achieve optimal health.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Benefits:</strong> Lifestyle changes, Habit formation, Ongoing support
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Flexible scheduling
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Start Coaching
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 5: Nutrition Consultation -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-apple-alt me-3" style="font-size: 24px;"></i>Nutrition Consultation
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">Personalized diet plans that improve energy levels, weight management, and blood sugar control through expert nutritional guidance.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Results:</strong> Better energy, Weight management, Blood sugar control
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Comprehensive assessments
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Book Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 6: Physiotherapy -->
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 shadow-lg border-0 service-card" style="transition: all 0.3s ease;">
+                    <div class="card-header" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); border: none;">
+                        <h5 class="card-title text-white mb-0 d-flex align-items-center">
+                            <i class="fas fa-running me-3" style="font-size: 24px;"></i>Physiotherapy
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="line-height: 1.6;">Professional rehabilitation services that improve movement, reduce pain, and support recovery from injuries and chronic conditions.</p>
+                        <p class="text-muted small mb-2">
+                            <strong>Benefits:</strong> Improved mobility, Pain reduction, Faster recovery
+                        </p>
+                        <p class="text-muted small mb-0">
+                            <i class="fas fa-clock me-2"></i>Customized treatment plans
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-calendar me-1"></i>Schedule Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Services Section -->
+    <section class="my-5 pt-5 border-top">
+        <h2 class="mb-4 fw-bold">Why Choose Our Functional Medicine Services?</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Root Cause Treatment:</strong> We address underlying causes, not just symptoms
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Advanced Therapies:</strong> Cutting-edge treatments like HBOT and PEMF therapy
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Multidisciplinary Team:</strong> Physicians, nutritionists, physiotherapists, and health coaches
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Personalized Care:</strong> Treatment plans tailored to your unique biochemistry
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Comprehensive Testing:</strong> Advanced laboratory services for accurate diagnosis
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 20px;"></i>
+                        <div>
+                            <strong>Holistic Approach:</strong> Mind, body, and spirit wellness integration
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient p-5 rounded text-center mt-5 text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);">
+        <h3 class="fw-bold mb-2">Ready to Start Your Healing Journey?</h3>
+        <p class="mb-4 lead">Experience the difference of functional medicine. Book your consultation today and discover how we can help you achieve optimal health.</p>
+        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-light btn-lg fw-bold">
+            <i class="fas fa-calendar me-2"></i>Book Your Consultation
+        </a>
+    </div>
+</div>
+
+<style>
+.service-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-card .card-header {
+    padding: 1.25rem;
+}
+
+.service-card .card-body {
+    padding: 1.5rem;
+}
+
+.service-card .card-footer {
+    padding: 1rem 1.5rem;
+}
+</style>
+{% endblock %}

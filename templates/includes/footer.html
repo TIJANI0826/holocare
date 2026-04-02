@@ -1,0 +1,147 @@
+{% load static %}
+
+<footer class="bg-gradient-dark text-light mt-5 pt-5 border-top" role="contentinfo" style="background: linear-gradient(135deg, #1D3557 0%, #000000 100%);">
+    <div class="container">
+        <!-- Main Footer Content -->
+        <div class="row mb-5">
+            <!-- About Section -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="footer-brand mb-3 d-flex align-items-center">
+                    <img src="{% static 'images/contactLOGO-1.png' %}" alt="Contact Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 12px;">
+                    
+                </div>
+                <p class="text-light-70" style="font-size: 14px; line-height: 1.6;">
+                    We are the pioneers of Functional Medicine & Hyperbaric Medicine in Nigeria. Nigeria's Federal Capital Territory, Abuja.
+                </p>
+                <!-- Newsletter Signup -->
+                <div class="newsletter-signup mb-3">
+                    <form method="post" class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Email" required>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+                <!-- Social Links -->
+                <div class="social-links mt-3">
+                    <a href="#" class="text-light me-3" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-light me-3" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-light me-3" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-light" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links Section -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Quick Links</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="{% url 'pages_frontend:home' %}">Home</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='about' %}">About Us</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='services' %}">Services</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='resources' %}">Research & Videos</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='appointments' %}">Become A Patient</a></li>
+                </ul>
+            </div>
+            
+            <!-- Useful Links Section -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Useful Links</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="/faq/">Frequently Asked Questions</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Contact & Opening Hours</h6>
+                <p class="mb-2" style="font-size: 14px;">
+                    Monday-Sunday (8am – 5pm)
+                </p>
+                <p class="mb-2" style="font-size: 14px;">
+                    +234 805 544 4565
+                </p>
+                <p style="font-size: 14px;">
+                    Address: 1B Rudolf Street, Maitama, FCT, Abuja, Nigeria
+                </p>
+                <a href="http://wa.me/c/2348055444565" target="_blank" class="btn btn-success mt-3">
+                    <i class="fab fa-whatsapp me-2"></i>Contact Us via WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <!-- Divider -->
+        <hr class="bg-light-20" style="border-color: rgba(255,255,255,0.1);">
+        
+        <!-- Bottom Footer -->
+        <div class="row align-items-center py-4 small">
+            <div class="col-md-6">
+                <p class="mb-0 text-light-70">Holcare Health & Wellness Clinic</p>
+            </div>
+            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                <p class="mb-0 text-light-70">Copyright © 2026. All Right Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+footer {
+    margin-top: auto;
+}
+
+.text-light-70 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.text-light-20 {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    margin-left: 5px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--primary-color);
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF !important;
+</style>

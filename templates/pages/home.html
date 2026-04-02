@@ -1,0 +1,1718 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block content %}
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000" style="min-height: 300px;">
+    <div class="carousel-inner" style="height: 600px;">
+        <!-- Slide 1: Welcome - Red Theme -->
+        <div class="carousel-item active carousel-item-bg-1" style="height: 100%; position: relative;">
+            <img src="{% static 'images/carousel/slide-1-stethoscope.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Welcome to Holcare Health & Wellness Clinic">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.2) 0%, rgba(164, 22, 26, 0.2) 100%);"></div>
+            <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
+                <div class="text-center text-white carousel-slide-content">
+                    <i class="fas fa-heartbeat display-4 mb-3"></i>
+                    <h1 class="display-3 fw-bold mb-3 animated fadeInDown" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Treat the Root Cause, Not Just Symptoms</h1>
+                    <p class="lead mb-4 animated fadeInUp" style="animation-delay: 0.2s; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">At Holcare, our goal is to help you treat the root cause of your condition, not just the symptoms, through our specialized laboratory services, using personalized care and advanced, non-invasive therapies.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold animated fadeInUp" style="animation-delay: 0.4s;">
+                            <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                        </a>
+                        <a href="https://wa.me/2348055444565?text=Hello%20Holcare%20Health%20%26%20Wellness%20Clinic.%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-success btn-lg fw-bold animated fadeInUp" style="animation-delay: 0.6s;">
+                            <i class="fab fa-whatsapp me-2"></i>Chat with Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Experienced Doctors - Blue Theme -->
+        <div class="carousel-item carousel-item-bg-2" style="height: 100%; position: relative;">
+            <img src="{% static 'images/carousel/slide-2-healthcare-worker.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Experienced Medical Professionals">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(29, 53, 87, 0.2) 0%, rgba(69, 123, 157, 0.2) 100%);"></div>
+            <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
+                <div class="text-center text-white carousel-slide-content">
+                    <i class="fas fa-stethoscope display-4 mb-3"></i>
+                    <h2 class="display-3 fw-bold mb-3 animated fadeInDown" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Experienced Medical Professionals</h2>
+                    <p class="lead mb-4 animated fadeInUp" style="animation-delay: 0.2s; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Our team of highly qualified and experienced doctors and specialists dedicated to your health</p>
+                    <a href="{% url 'pages_frontend:page-detail' slug='providers' %}" class="btn btn-light btn-lg fw-bold animated fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fas fa-user-md me-2"></i>Meet Our Doctors
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Advanced Therapies - Green Theme -->
+        <div class="carousel-item carousel-item-bg-3" style="height: 100%; position: relative;">
+            <img src="{% static 'images/carousel/slide-3-hospital-room.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Advanced Non-Invasive Therapies">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(40, 167, 69, 0.2) 0%, rgba(34, 197, 94, 0.2) 100%);"></div>
+            <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
+                <div class="text-center text-white carousel-slide-content">
+                    <i class="fas fa-lightbulb display-4 mb-3"></i>
+                    <h2 class="display-3 fw-bold mb-3 animated fadeInDown" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Advanced Non-Invasive Therapies</h2>
+                    <p class="lead mb-4 animated fadeInUp" style="animation-delay: 0.2s; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Experience cutting-edge treatments: Hyperbaric Oxygen Therapy (HBOT), Red Light Therapy, and Pulse Electromagnetic Therapy (PEMF)</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-90 rounded p-3 shadow-sm">
+                                <i class="fas fa-lungs text-success mb-2" style="font-size: 2rem;"></i>
+                                <h6 class="text-dark fw-bold mb-1">HBOT</h6>
+                                <small class="text-muted">Oxygen Therapy</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-90 rounded p-3 shadow-sm">
+                                <i class="fas fa-sun text-warning mb-2" style="font-size: 2rem;"></i>
+                                <h6 class="text-dark fw-bold mb-1">Red Light</h6>
+                                <small class="text-muted">Cellular Healing</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white bg-opacity-90 rounded p-3 shadow-sm">
+                                <i class="fas fa-magnet text-primary mb-2" style="font-size: 2rem;"></i>
+                                <h6 class="text-dark fw-bold mb-1">PEMF</h6>
+                                <small class="text-muted">Electromagnetic</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'pages_frontend:page-detail' slug='services' %}" class="btn btn-light btn-lg fw-bold animated fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fas fa-info-circle me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Medication Recovery - Purple Theme -->
+        <div class="carousel-item carousel-item-bg-4" style="height: 100%; position: relative;">
+            <img src="{% static 'images/carousel/slide-4-surgical-team.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Natural Healing and Recovery">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(102, 51, 153, 0.2) 0%, rgba(139, 69, 19, 0.2) 100%);"></div>
+            <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
+                <div class="text-center text-white carousel-slide-content">
+                    <i class="fas fa-seedling display-4 mb-3"></i>
+                    <h2 class="display-3 fw-bold mb-3 animated fadeInDown" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Natural Healing & Recovery</h2>
+                    <p class="lead mb-4 animated fadeInUp" style="animation-delay: 0.2s; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">If you've been on medications for years without real progress, our approach is designed to help your body heal and recover more effectively.</p>
+                    <div class="bg-white bg-opacity-10 rounded p-4 mb-4">
+                        <p class="text-white mb-0 fs-5">Experience true healing through functional medicine and advanced therapies that address the root cause of your health challenges.</p>
+                    </div>
+                    <a href="{% url 'pages_frontend:page-detail' slug='about' %}" class="btn btn-light btn-lg fw-bold animated fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fas fa-hand-holding-heart me-2"></i>Our Approach
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.4) !important; border-radius: 50%; top: 50%; transform: translateY(-50%); left: 20px;">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23ffffff%22 viewBox=%220 0 8 8%22%3E%3Cpath d=%22M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z%22/%3E%3C/svg%3E'); background-size: 50%; background-position: center; background-repeat: no-repeat; width: 30px; height: 30px;"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.4) !important; border-radius: 50%; top: 50%; transform: translateY(-50%); right: 20px;">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23ffffff%22 viewBox=%220 0 8 8%22%3E%3Cpath d=%22M2.75 0l-1.5 1.5L3.75 4 1.25 6.5 2.75 8l4-4-4-4z%22/%3E%3C/svg%3E'); background-size: 50%; background-position: center; background-repeat: no-repeat; width: 30px; height: 30px;"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<style>
+/* Carousel Enhancements */
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.carousel-slide-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    opacity: 1;
+    background-color: rgba(221, 39, 39, 0.7) !important;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    z-index: 11;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    position: relative;
+}
+
+.carousel-indicators {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 10 !important;
+    width: auto !important;
+    justify-content: center;
+    display: flex !important;
+}
+
+.carousel-indicators .active {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(221, 39, 39, 0.7);
+}
+
+@media (max-height: 600px) {
+    .carousel {
+        min-height: 400px;
+    }
+    
+    .carousel-inner {
+        height: 400px !important;
+    }
+    
+    .carousel-slide-content h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        min-height: 250px;
+        position: relative;
+    }
+    
+    .carousel-inner {
+        height: 250px !important;
+    }
+    
+    .carousel-slide-content {
+        padding: 0.5rem !important;
+    }
+
+    .carousel-slide-content i {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .carousel-slide-content h1,
+    .carousel-slide-content h2 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .carousel-slide-content .lead {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .carousel-slide-content .btn {
+        font-size: 0.7rem !important;
+        padding: 0.35rem 0.75rem !important;
+        margin-bottom: 0.35rem !important;
+    }
+
+    .carousel-slide-content .d-flex.flex-column.flex-sm-row {
+        gap: 0.5rem !important;
+    }
+
+    /* Reduce therapy cards */
+    .carousel-slide-content .row.g-3 {
+        gap: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .carousel-slide-content .row.g-3 .col-md-4 {
+        flex: 0 0 33.333333% !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 {
+        padding: 0.5rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 i {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 h6 {
+        font-size: 0.65rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 small {
+        font-size: 0.6rem !important;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+
+    .carousel-control-next {
+        right: 10px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-size: 35%;
+    }
+    
+    .carousel-indicators {
+        bottom: 15px !important;
+    }
+}
+
+.carousel-indicators .active {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(221, 39, 39, 0.7);
+}
+
+@media (max-height: 600px) {
+    .carousel {
+        min-height: 400px;
+    }
+    
+    .carousel-inner {
+        height: 400px !important;
+    }
+    
+    .carousel-slide-content h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        min-height: 400px;
+        position: relative;
+    }
+
+    .carousel-inner {
+        height: 400px !important;
+    }
+
+    .carousel-slide-content h1,
+    .carousel-slide-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-slide-content .lead {
+        font-size: 0.9rem;
+    }
+
+    .carousel-slide-content .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        width: 45px;
+        height: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        left: 15px;
+    }
+
+    .carousel-control-next {
+        right: 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-size: 40%;
+    }
+
+    .carousel-indicators {
+        bottom: 20px !important;
+    }
+
+    /* Enhanced mobile section spacing */
+    h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .card {
+        margin-bottom: 20px;
+        border-radius: 15px !important;
+    }
+
+    .card-body {
+        padding: 1.25rem 1rem;
+    }
+
+    .row {
+        gap: 1rem;
+    }
+
+    /* Modern mobile cards */
+    .hover-lift:hover {
+        transform: none; /* Disable hover lift on mobile */
+    }
+
+    .icon-wrapper {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .icon-wrapper i {
+        font-size: 1.5rem !important;
+    }
+
+    /* Mobile button improvements */
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        border-radius: 12px !important;
+    }
+
+    .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Mobile text improvements */
+    .display-3 {
+        font-size: 2rem !important;
+    }
+
+    .display-4 {
+        font-size: 1.75rem !important;
+    }
+
+    .lead {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Mobile spacing improvements */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .my-5 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .g-4 {
+        gap: 1.5rem !important;
+    }
+
+    /* Mobile team cards */
+    .card h-100 {
+        margin-bottom: 1.5rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .text-md-start {
+        text-align: center !important;
+    }
+
+    .text-lg-start {
+        text-align: center !important;
+    }
+
+    .justify-content-lg-start {
+        justify-content: center !important;
+    }
+
+    .col-lg-5 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    /* Enhanced Mobile Carousel Controls */
+    #testimonialCarousel .carousel-control-prev,
+    #testimonialCarousel .carousel-control-next {
+        left: auto !important;
+        right: auto !important;
+        position: static !important;
+        transform: none !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin-top: 1rem;
+        display: none;
+    }
+
+    /* Mobile doctor team cards */
+    .col-lg-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    /* Mobile section margins and padding */
+    section {
+        padding: 1.5rem 0 !important;
+    }
+
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Enhanced mobile card image height */
+    .card img {
+        height: 200px !important;
+    }
+
+    /* Mobile badge spacing */
+    .badge {
+        font-size: 0.75rem !important;
+        padding: 0.35rem 0.65rem !important;
+    }
+}
+
+/* Tablet devices (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    h3, h4 {
+        font-size: 1.3rem !important;
+    }
+
+    .lead {
+        font-size: 1rem !important;
+    }
+
+    .display-3 {
+        font-size: 2rem !important;
+    }
+
+    .col-lg-4 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    /* Tablet carousel adjustments */
+    .carousel-item {
+        height: 450px !important;
+    }
+
+    .carousel-slide-content h1,
+    .carousel-slide-content h2 {
+        font-size: 1.75rem !important;
+    }
+
+    /* Tablet section spacing */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* Better card sizing for tablets */
+    .card {
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Improved button sizing */
+    .btn-lg {
+        font-size: 1rem !important;
+        padding: 0.6rem 1.2rem !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    /* Ultra-compact carousel for small phones */
+    .carousel-inner {
+        height: 200px !important;
+    }
+
+    .carousel-slide-content {
+        padding: 0.25rem !important;
+    }
+
+    .carousel-slide-content i {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .carousel-slide-content h1,
+    .carousel-slide-content h2 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .carousel-slide-content .lead {
+        font-size: 0.65rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .carousel-slide-content .btn {
+        font-size: 0.65rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* Compact therapy cards */
+    .carousel-slide-content .row.g-3 {
+        gap: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 {
+        padding: 0.35rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 i {
+        font-size: 1rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 h6 {
+        font-size: 0.55rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-90 small {
+        font-size: 0.5rem !important;
+    }
+
+    /* Hide recovery box content on very small screens */
+    .carousel-slide-content .bg-white.bg-opacity-10 {
+        padding: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .carousel-slide-content .bg-white.bg-opacity-10 p {
+        font-size: 0.65rem !important;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .display-3 {
+        font-size: 1.2rem !important;
+    }
+
+    .lead {
+        font-size: 0.8rem !important;
+    }
+
+    .btn {
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0.8rem !important;
+    }
+
+    section {
+        padding: 0.75rem 0 !important;
+    }
+
+    .card-body {
+        padding: 0.75rem !important;
+    }
+
+    /* Tight spacing for small screens */
+    .py-5 {
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    .mb-4 {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 1rem !important;
+    }
+
+    /* Mobile-friendly card images */
+    .card {
+        min-height: auto !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .card img {
+        height: 120px !important;
+    }
+
+    /* Avatar sizing */
+    .avatar-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .avatar-wrapper i {
+        font-size: 1rem !important;
+    }
+
+    /* Mobile testimonials carousel */
+    #testimonialCarousel .carousel-control-prev,
+    #testimonialCarousel .carousel-control-next {
+        width: 25px !important;
+        height: 25px !important;
+        left: auto !important;
+        right: auto !important;
+        position: relative !important;
+        margin-top: 0.75rem !important;
+        display: inline-block !important;
+        transform: none !important;
+    }
+
+    #testimonialCarousel .carousel-control-prev-icon,
+    #testimonialCarousel .carousel-control-next-icon {
+        background-size: 50% !important;
+    }
+
+    /* Mobile doctor cards - make full width on very small screens */
+    .col-lg-4,
+    .col-md-6 {
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .card-body {
+        padding: 0.65rem !important;
+    }
+
+    .card-title {
+        font-size: 0.9rem !important;
+    }
+
+    /* Mobile section heading adjustments */
+    h2 {
+        font-size: 1.1rem !important;
+    }
+
+    h4, h5 {
+        font-size: 0.9rem !important;
+    }
+
+    /* Compact testimonial quotes */
+    .lead {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Ensure buttons don't overflow */
+    .btn {
+        width: 100% !important;
+        padding: 0.3rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Fix carousel indicators for mobile */
+    .carousel-indicators [data-bs-target] {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 2px !important;
+    }
+
+    /* Reduce container padding */
+    .container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+.animated {
+    animation-duration: 0.8s;
+}
+
+/* Modern Card Hover Effects */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.hover-lift:hover .overlay {
+    opacity: 1 !important;
+}
+
+.hover-lift:hover img {
+    transform: scale(1.05);
+}
+
+/* Enhanced Icon Wrappers */
+.icon-wrapper {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover .icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern Button Styles */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Card Styling */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Badge Enhancements */
+.badge {
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+/* Avatar Styling */
+.avatar-wrapper {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover .avatar-wrapper {
+    transform: scale(1.1);
+}
+</style>
+
+<!-- Value Proposition Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-5 mb-4">
+                <div class="card h-100 border-0 shadow-lg hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 10px 30px rgba(221, 39, 39, 0.3);">
+                            <i class="fas fa-certificate text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 1.5rem;">Certified Experts</h3>
+                        <p class="text-muted mb-0 lead" style="line-height: 1.6; font-size: 1.1rem;">Our team are certified in their fields and deliver top-notch services comparable to global standards.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-4">
+                        <div class="d-flex justify-content-center">
+                            <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">
+                                <i class="fas fa-star me-1"></i>Expert Care
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 mb-4">
+                <div class="card h-100 border-0 shadow-lg hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);">
+                            <i class="fas fa-heart text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 1.5rem;">Holistic Care</h3>
+                        <p class="text-muted mb-0 lead" style="line-height: 1.6; font-size: 1.1rem;">We treat the whole person—body, mind, and spirit—rather than just symptoms.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 p-4">
+                        <div class="d-flex justify-content-center">
+                            <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">
+                                <i class="fas fa-heart me-1"></i>Complete Wellness
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Consultation Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row align-items-center justify-content-center g-5">
+            <div class="col-lg-6">
+                <div class="text-center text-lg-start">
+                    <div class="mb-4">
+                        <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-3" style="font-size: 0.9rem; font-weight: 500;">
+                            <i class="fas fa-calendar-check me-1"></i>FREE CONSULTATION
+                        </span>
+                    </div>
+                    <h2 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 2.2rem; line-height: 1.3;">Ready to Start Your Health Journey?</h2>
+                    <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.6;">Click to book an appointment as a first timer for your consultation about your health and wellbeing. We will advise you on the best program for you.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
+                            <i class="fas fa-calendar-plus me-2"></i>Book Your Consultation
+                        </a>
+                        <a href="https://wa.me/2348055444565?text=Hello%20Holcare%20Health%20%26%20Wellness%20Clinic.%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-success btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
+                            <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border-radius: 20px; color: white;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-user-md text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="font-size: 1.4rem;">Personalized Care Approach</h4>
+                        <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Every patient receives individualized attention and evidence-based treatment tailored to their unique health needs.</p>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <div class="fw-bold" style="font-size: 1.5rem;">50+</div>
+                                    <small class="text-white-75">Patients Helped</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <div class="fw-bold" style="font-size: 1.5rem;">24/7</div>
+                                    <small class="text-white-75">Support Available</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Awareness Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+                <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">Does This Sound Like You?</h2>
+                <p class="lead text-muted mb-4" style="font-size: 1.15rem; line-height: 1.6;">Take our quick assessment to see if functional medicine could help you</p>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 15px; transition: all 0.3s ease; cursor: pointer;">
+                            <div class="card-body p-4 text-center">
+                                <div class="icon-wrapper mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <i class="fas fa-clock text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <p class="mb-0 text-dark fw-medium" style="font-size: 1rem; line-height: 1.5;">Managing a condition for years without improvement</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 15px; transition: all 0.3s ease; cursor: pointer;">
+                            <div class="card-body p-4 text-center">
+                                <div class="icon-wrapper mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <i class="fas fa-pills text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <p class="mb-0 text-dark fw-medium" style="font-size: 1rem; line-height: 1.5;">Tired of medications without results</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 15px; transition: all 0.3s ease; cursor: pointer;">
+                            <div class="card-body p-4 text-center">
+                                <div class="icon-wrapper mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #6c757d 0%, #495057 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <i class="fas fa-tired text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <p class="mb-0 text-dark fw-medium" style="font-size: 1rem; line-height: 1.5;">Constant fatigue or pain</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 15px; transition: all 0.3s ease; cursor: pointer;">
+                            <div class="card-body p-4 text-center">
+                                <div class="icon-wrapper mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    <i class="fas fa-user-md text-white" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <p class="mb-0 text-dark fw-medium" style="font-size: 1rem; line-height: 1.5;">Told you're fine but don't feel fine</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="lead text-muted mb-4" style="font-size: 1.1rem;">If this sounds familiar, you're not alone and there is a more personalized approach to your health.</p>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
+                        <i class="fas fa-phone me-2"></i>Learn More About Our Approach
+                    </a>
+                    <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-outline-danger btn-lg px-4 py-3 fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
+                        <i class="fas fa-calendar me-2"></i>Book Free Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Do Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-5">
+                <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">What We Do</h2>
+                <p class="lead text-muted mb-4" style="font-size: 1.15rem; line-height: 1.6;">We help people with chronic health conditions get better by identifying and treating the root cause.</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-lg hover-lift text-center" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                            <div class="card-body p-4">
+                                <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 25px rgba(23, 162, 184, 0.3);">
+                                    <i class="fas fa-flask text-white" style="font-size: 1.8rem;"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 1.25rem;">Laboratory Services</h5>
+                                <p class="text-muted mb-0" style="font-size: 1rem; line-height: 1.6;">Specialized diagnostic testing to identify root causes</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 p-3">
+                                <span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill">
+                                    <i class="fas fa-microscope me-1"></i>Advanced Testing
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-lg hover-lift text-center" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                            <div class="card-body p-4">
+                                <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);">
+                                    <i class="fas fa-lungs text-white" style="font-size: 1.8rem;"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 1.25rem;">HBOT Therapy</h5>
+                                <p class="text-muted mb-0" style="font-size: 1rem; line-height: 1.6;">Hyperbaric Oxygen Therapy for healing and recovery</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 p-3">
+                                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">
+                                    <i class="fas fa-lungs me-1"></i>Oxygen Therapy
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-lg hover-lift text-center" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                            <div class="card-body p-4">
+                                <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);">
+                                    <i class="fas fa-lightbulb text-white" style="font-size: 1.8rem;"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 1.25rem;">Advanced Therapies</h5>
+                                <p class="text-muted mb-0" style="font-size: 1rem; line-height: 1.6;">Red Light and PEMF therapies for cellular health</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 p-3">
+                                <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill">
+                                    <i class="fas fa-lightbulb me-1"></i>Light & Energy
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who We Treat Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Who We Treat</h2>
+                    <p class="lead text-muted">We treat people with chronic health conditions using a comprehensive approach</p>
+                </div>
+                
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-8">
+                        <h4 class="fw-bold mb-3" style="color: var(--primary-color);">Medical Conditions We Address</h4>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-heartbeat text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Hypertension</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-syringe text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Diabetes</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-brain text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Stroke Recovery</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-exclamation-triangle text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Chronic Pain</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #6c757d 0%, #495057 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-moon text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">Sleep Issues</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
+                                    <div class="card-body p-3 d-flex align-items-center">
+                                        <div class="icon-wrapper me-3" style="width: 45px; height: 45px; background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-plus text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <span class="fw-medium text-dark">And More...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="fw-bold mb-3" style="color: var(--primary-color);">Our Therapies</h4>
+                        <div class="bg-white p-4 rounded shadow-sm">
+                            <p class="mb-3">We combine Functional Medicine with advanced therapies:</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-lungs text-success me-2"></i>Hyperbaric Oxygen Therapy (HBOT)</li>
+                                <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Red Light Therapy</li>
+                                <li class="mb-0"><i class="fas fa-magnet text-primary me-2"></i>Pulse Electromagnetic Therapy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Visual Section - Clinic Gallery -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Experience Holcare</h2>
+            <p class="lead text-muted">Take a virtual tour of our modern facility</p>
+        </div>
+        
+        <div id="clinicGallery" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/clinic/front-desk.jpg' %}" class="d-block w-100" alt="Front Desk" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Modern Reception Area</h5>
+                        <p>Welcome to our comfortable and welcoming front desk</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/clinic/waiting-room.jpg' %}" class="d-block w-100" alt="Waiting Room" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Comfortable Waiting Area</h5>
+                        <p>A relaxing space for you and your family</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/clinic/oxygen-room.jpg' %}" class="d-block w-100" alt="Oxygen Room" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>HBOT Therapy Room</h5>
+                        <p>State-of-the-art hyperbaric oxygen therapy facility</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/clinic/laboratory.jpg' %}" class="d-block w-100" alt="Laboratory" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Advanced Laboratory</h5>
+                        <p>Comprehensive diagnostic testing capabilities</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#clinicGallery" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#clinicGallery" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials & Membership Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">What Our Patients Say</h2>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden;">
+                                <div class="card-body p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-danger" style="font-size: 2.5rem; opacity: 0.3;"></i>
+                                    </div>
+                                    <p class="lead mb-3 text-dark" style="font-size: 1.1rem; line-height: 1.6; font-style: italic;">"Holcare helped me understand the root cause of my chronic fatigue. Their functional medicine approach made all the difference. I feel like myself again!"</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-wrapper me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-user-circle text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-dark" style="font-size: 1rem;">Sarah M.</h6>
+                                            <small class="text-muted" style="font-size: 0.9rem;">Chronic Fatigue Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 p-3">
+                                    <div class="d-flex">
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger"><i class="fas fa-star"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden;">
+                                <div class="card-body p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-danger" style="font-size: 2.5rem; opacity: 0.3;"></i>
+                                    </div>
+                                    <p class="lead mb-3 text-dark" style="font-size: 1.1rem; line-height: 1.6; font-style: italic;">"The HBOT therapy sessions combined with their personalized treatment plan have transformed my recovery. Highly recommend Holcare to anyone seeking real healthcare solutions."</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-wrapper me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-user-circle text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-dark" style="font-size: 1rem;">James K.</h6>
+                                            <small class="text-muted" style="font-size: 0.9rem;">Post-Stroke Recovery Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 p-3">
+                                    <div class="d-flex">
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger"><i class="fas fa-star"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="carousel-item">
+                            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden;">
+                                <div class="card-body p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-danger" style="font-size: 2.5rem; opacity: 0.3;"></i>
+                                    </div>
+                                    <p class="lead mb-3 text-dark" style="font-size: 1.1rem; line-height: 1.6; font-style: italic;">"After years of managing hypertension with just medications, Holcare's functional medicine approach finally got to the root cause. My blood pressure is now well-controlled naturally!"</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-wrapper me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-user-circle text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-dark" style="font-size: 1rem;">Dr. Amina T.</h6>
+                                            <small class="text-muted" style="font-size: 0.9rem;">Hypertension Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 p-3">
+                                    <div class="d-flex">
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger"><i class="fas fa-star"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 4 -->
+                        <div class="carousel-item">
+                            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 20px; overflow: hidden;">
+                                <div class="card-body p-4">
+                                    <div class="mb-3">
+                                        <i class="fas fa-quote-left text-danger" style="font-size: 2.5rem; opacity: 0.3;"></i>
+                                    </div>
+                                    <p class="lead mb-3 text-dark" style="font-size: 1.1rem; line-height: 1.6; font-style: italic;">"The combination of Red Light Therapy and their nutritional guidance resolved my chronic pain without side effects. Finally, a healthcare provider who listens!"</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-wrapper me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-user-circle text-white" style="font-size: 1.5rem;"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold text-dark" style="font-size: 1rem;">David R.</h6>
+                                            <small class="text-muted" style="font-size: 0.9rem;">Chronic Pain Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 p-3">
+                                    <div class="d-flex">
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger me-2"><i class="fas fa-star"></i></span>
+                                        <span class="badge bg-danger-subtle text-danger"><i class="fas fa-star"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" style="width: 40px; height: 40px; background-color: rgba(221, 39, 39, 0.3) !important; border-radius: 50%; top: 50%; transform: translateY(-50%); left: -60px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" style="width: 40px; height: 40px; background-color: rgba(221, 39, 39, 0.3) !important; border-radius: 50%; top: 50%; transform: translateY(-50%); right: -60px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border-radius: 20px; color: white;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-crown text-white" style="font-size: 1.8rem;"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3" style="font-size: 1.4rem;">Membership Plans</h4>
+                        <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Join our wellness community for ongoing support and exclusive benefits.</p>
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-light btn-lg fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
+                                <i class="fas fa-info-circle me-2"></i>Learn About Membership
+                            </button>
+                            <button class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
+                                <i class="fas fa-plus me-2"></i>Join Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <section>
+        <!-- Section Header -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <span class="badge bg-danger-subtle text-danger fw-600 px-3 py-2 mb-3" style="font-size: 0.85rem; letter-spacing: 1px;">OUR STORY</span>
+                <h2 class="mb-3 fw-bold" style="color: var(--primary-color); font-size: 2.8rem;">About Holcare Health & Wellness Clinic</h2>
+                <p class="text-muted lead" style="font-size: 1.15rem; line-height: 1.8;">Committed to delivering world-class healthcare with compassion and excellence</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="row align-items-center justify-content-center g-5 mb-5">
+            <!-- Left Content -->
+            <div class="col-lg-5 order-lg-1">
+                <!-- Main Description -->
+                <div class="mb-5">
+                    <p class="lead text-dark mb-3" style="font-size: 1.1rem; line-height: 1.8; font-weight: 500;">
+                        Holcare Health & Wellness Clinic Abuja stands as a beacon of healthcare excellence in the region, offering expert doctors, modern treatments, and compassionate care for families across multiple specialties.
+                    </p>
+                    <p class="text-muted" style="font-size: 1rem; line-height: 1.8;">
+                        We are committed to compassionate, world-class healthcare with a focus on quality medical services and patient-centered care. Every patient receives personalized attention and evidence-based treatment.
+                    </p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div style="background: rgba(221, 39, 39, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                            <div style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h6 class="fw-bold mb-2" style="color: var(--secondary-color);">Expert Team</h6>
+                            <p class="text-muted small mb-0">Experienced physicians across specialties</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="background: rgba(221, 39, 39, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                            <div style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">
+                                <i class="fas fa-flask-vial"></i>
+                            </div>
+                            <h6 class="fw-bold mb-2" style="color: var(--secondary-color);">Modern Labs</h6>
+                            <p class="text-muted small mb-0">Advanced diagnostic facilities</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="background: rgba(221, 39, 39, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                            <div style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h6 class="fw-bold mb-2" style="color: var(--secondary-color);">Privacy First</h6>
+                            <p class="text-muted small mb-0">Patient confidentiality guaranteed</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="background: rgba(221, 39, 39, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-color);">
+                            <div style="font-size: 28px; color: var(--primary-color); margin-bottom: 10px;">
+                                <i class="fas fa-heart-pulse"></i>
+                            </div>
+                            <h6 class="fw-bold mb-2" style="color: var(--secondary-color);">Patient Care</h6>
+                            <p class="text-muted small mb-0">Personalized treatment approach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-lg-5 order-lg-2">
+                {% if page.featured_image %}
+                    <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 20px 60px rgba(221, 39, 39, 0.15);">
+                        <img src="{{ page.featured_image.url }}" alt="Holcare Health & Wellness Clinic" class="img-fluid w-100" style="height: 500px; object-fit: cover;">
+                    </div>
+                {% else %}
+                    <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); padding: 60px 40px; border-radius: 15px; text-align: center; color: white; height: 500px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(221, 39, 39, 0.15);">
+                        <i class="fas fa-hospital-user" style="font-size: 80px; margin-bottom: 20px; opacity: 0.9;"></i>
+                        <h3 class="fw-bold mb-2">Holcare Health & Wellness Clinic</h3>
+                        <p style="font-size: 1.1rem;">Expert Healthcare Excellence in Abuja</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container my-5">
+    <section>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-3 fw-bold" style="color: var(--primary-color); font-size: 2.5rem;">Why Choose Us</h2>
+                <p class="text-muted lead" style="font-size: 1.1rem;">Reasons to trust Holcare Health & Wellness Clinic for your healthcare needs</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="mb-4 fw-bold" style="color: var(--primary-color);">Why Choose Holcare Health & Wellness Clinic?</h2>
+                <div class="mb-3 d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Expert Physicians</h5>
+                        <p class="text-muted mb-0">Experienced and qualified medical professionals across multiple specialties</p>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Modern Facilities</h5>
+                        <p class="text-muted mb-0">State-of-the-art medical equipment and diagnostic laboratory</p>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Patient-Centered Care</h5>
+                        <p class="text-muted mb-0">Compassionate approach focused on your health and well-being</p>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Accessibility</h5>
+                        <p class="text-muted mb-0">Convenient services and accessible healthcare for your family</p>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Privacy & Confidentiality</h5>
+                        <p class="text-muted mb-0">Commitment to privacy practices and patient data protection</p>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <div style="font-size: 24px; color: var(--primary-color); margin-right: 15px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-1">Quality Assurance</h5>
+                        <p class="text-muted mb-0">Comprehensive care approach emphasizing quality and excellence</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%); padding: 50px 30px; border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 64px; margin-bottom: 20px;">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Trusted Healthcare Partner</h3>
+                    <p class="lead mb-4">Your health is our priority. We're committed to providing world-class healthcare services with compassion and expertise.</p>
+                    <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
+                        <i class="fas fa-phone me-2"></i>Contact Us Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Meet Our Team Section -->
+<div class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <div class="container">
+        <section>
+            <div class="text-center mb-5">
+                <h2 class="mb-3 fw-bold" style="color: var(--primary-color);">Meet Our Team</h2>
+                <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">
+                    Our world-class team of functional medicine specialists, diagnostic consultants, and therapy experts work together to identify and treat the root cause of your chronic health conditions through advanced laboratory services, HBOT therapy, and innovative therapies like Red Light and PEMF.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Dr. Jane Doe -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/jane-doe.jpg" alt="Dr. Jane Doe" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Jane Doe</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-female me-2"></i>OB/GYN Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Jane Doe is a highly respected Obstetrician and Gynecologist at Holcare Health & Wellness Clinic Abuja, bringing over 20 years of clinical experience in women's health and reproductive medicine.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>20+ years</strong>
+                                </div>
+                                <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill">
+                                    <i class="fas fa-female me-1"></i>OB/GYN
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. John Smith -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/john-smith.jpg" alt="Dr. John Smith" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. John Smith</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-stethoscope me-2"></i>Internal Medicine Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. John Smith is an Internal Medicine Specialist dedicated to improving healthcare in West Africa. With over 6 years of professional experience, he is committed to providing high-quality medical care in Nigeria.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>6+ years</strong>
+                                </div>
+                                <span class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill">
+                                    <i class="fas fa-stethoscope me-1"></i>Internal Med
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Emily Johnson -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/emily-johnson.jpg" alt="Dr. Emily Johnson" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Emily Johnson</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-bone me-2"></i>Orthopedic Surgeon
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Expert orthopedic consultant with 20+ years of experience in trauma care, joint surgery, and advanced musculoskeletal treatment.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>20+ years</strong>
+                                </div>
+                                <span class="badge bg-warning-subtle text-warning px-2 py-1 rounded-pill">
+                                    <i class="fas fa-bone me-1"></i>Orthopedic
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Michael Brown -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/michael-brown.jpg" alt="Dr. Michael Brown" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Michael Brown</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-child me-2"></i>Pediatrics & Allergy Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Michael Brown is a compassionate Pediatrician and Allergy & Clinical Immunology Subspecialist with 15 years of experience, dedicated to providing exceptional care for children.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>15+ years</strong>
+                                </div>
+                                <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill">
+                                    <i class="fas fa-child me-1"></i>Pediatrics
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Sarah Wilson -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/sarah-wilson.jpg" alt="Dr. Sarah Wilson" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Sarah Wilson</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-heart me-2"></i>Cardiologist Consultant
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Sarah Wilson is a highly experienced Cardiology Consultant at Holcare Health & Wellness Clinic Abuja with over 18 years of expertise in diagnosing and treating complex heart conditions.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>18+ years</strong>
+                                </div>
+                                <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill">
+                                    <i class="fas fa-heart me-1"></i>Cardiology
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Etse Kelsy - Founder -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 2px solid var(--primary-color);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/etse-kelsy.jpg" alt="Dr. Etse Kelsy" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(11, 92, 117, 0.15) 0%, rgba(11, 92, 117, 0.1) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                            <div style="position: absolute; top: 10px; right: 10px; background: var(--primary-color); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">
+                                <i class="fas fa-star me-1"></i>Founder
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Etse Kelsy</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-leaf me-2"></i>Functional Medicine Specialist & Founder
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Etse Kelsy is the visionary founder and lead physician at Holcare. A renowned functional medicine specialist with 16+ years of experience, pioneering integrative healthcare solutions in Nigeria.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>16+ years</strong>
+                                </div>
+                                <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill">
+                                    <i class="fas fa-leaf me-1"></i>Founder
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

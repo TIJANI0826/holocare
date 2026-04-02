@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Registration Successful - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <!-- Success Message -->
+            <div class="card border-0 shadow-lg text-center">
+                <div class="card-body p-5">
+                    <!-- Success Icon -->
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle" style="font-size: 80px; color: #25D366;"></i>
+                    </div>
+
+                    <!-- Success Heading -->
+                    <h2 class="fw-bold mb-3" style="color: var(--primary-color);">
+                        Registration Successful!
+                    </h2>
+
+                    <!-- Success Message -->
+                    <p class="lead text-muted mb-4">
+                        Thank you for registering with Holcare Health & Wellness Clinic. Your registration has been completed successfully.
+                    </p>
+
+                    <!-- File Number Display -->
+                    <div class="alert alert-info mb-4" role="alert">
+                        <h5 class="mb-2">Your File Number</h5>
+                        <p class="display-6 fw-bold mb-0" style="color: var(--primary-color);">{{ patient.file_number }}</p>
+                        <small class="text-muted">Please save this number for future reference</small>
+                    </div>
+
+                    <!-- Patient Details -->
+                    <div class="bg-light p-4 rounded mb-4 text-start">
+                        <h6 class="fw-bold mb-3" style="color: var(--secondary-color);">Registered Information:</h6>
+                        <table class="table table-borderless mb-0">
+                            <tr>
+                                <td class="fw-bold">Name:</td>
+                                <td>{{ patient.full_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Email:</td>
+                                <td>{{ patient.email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Phone:</td>
+                                <td>{{ patient.phone }}</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Patient Type:</td>
+                                <td><span class="badge bg-danger">{{ patient.get_patient_type_display }}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Registration Date:</td>
+                                <td>{{ patient.registration_date|date:"F d, Y" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="alert alert-success mb-4" role="alert">
+                        <h6 class="fw-bold mb-2">What's Next?</h6>
+                        <ul class="mb-0" style="text-align: left;">
+                            <li>A confirmation email has been sent to {{ patient.email }}</li>
+                            <li>Please check your email (including spam folder) for important information</li>
+                            <li>You can now book an appointment through our system</li>
+                            <li>For any questions, call us at <strong>+234 805 544 4565</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="bg-light p-4 rounded mb-4">
+                        <h6 class="fw-bold mb-3" style="color: var(--secondary-color);">Contact Holcare Health & Wellness Clinic</h6>
+                        <div class="mb-2">
+                            <i class="fas fa-phone" style="color: var(--primary-color);"></i>
+                            <a href="tel:+2348055444565" class="text-decoration-none ms-2">+234 805 544 4565</a>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope" style="color: var(--primary-color);"></i>
+                            <a href="mailto:info@holcare.com" class="text-decoration-none ms-2">info@holcare.com</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i>
+                            <span class="ms-2">Abuja, Nigeria</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="{% url 'pages_frontend:home' %}" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-home me-2"></i>Back to Home
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
+                            <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="alert alert-warning mt-4" role="alert">
+                <h6 class="fw-bold mb-2">
+                    <i class="fas fa-info-circle me-2"></i>Important Notice
+                </h6>
+                <small>
+                    This registration creates your patient profile but does not automatically schedule an appointment. 
+                    Please contact us or use our appointment booking system to schedule your visit.
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.display-6 {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    .display-6 {
+        font-size: 2rem;
+    }
+}
+</style>
+{% endblock %}

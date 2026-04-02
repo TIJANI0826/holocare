@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Providers - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Meet our experienced healthcare providers{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="providers-hero text-white py-5" style="background: linear-gradient(135deg, #dd2727 0%, #c21a1a 100%);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Our Healthcare Providers</h1>
+        <p class="lead mb-0">Meet our team of experienced and compassionate healthcare professionals</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <!-- Search Section -->
+    <section class="mb-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-2">Find Your Provider</h2>
+                <p class="text-muted">Browse our directory of skilled physicians and specialists</p>
+            </div>
+            <div class="col-lg-6">
+                <form method="GET" action="." class="provider-filter">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" placeholder="Search by name or specialty" aria-label="Search providers" style="border-color: var(--primary-color);">
+                        <button class="btn btn-danger" type="submit" style="background-color: var(--primary-color);">
+                            <i class="fas fa-search me-1"></i>Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider Cards Grid -->
+    <section class="mb-5">
+        <div class="row g-4">
+            <!-- Provider Card 1: Dr. Nighat Khan -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
+                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
+                        <img src="{% static 'images/doctors/nighat-khan.jpg' %}" alt="Dr. Nighat Khan" class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dr. Jane Doe</h5>
+                        <p class="card-text text-danger fw-600 mb-2">
+                            <i class="fas fa-female me-2"></i>OB/GYN Specialist
+                        </p>
+                        <p class="card-text small text-muted mb-3">Highly respected Obstetrician and Gynecologist bringing over 20 years of clinical experience in women's health and reproductive medicine</p>
+                        <div class="mb-3">
+                            <small class="badge bg-light text-danger border border-danger">English</small>
+                            <small class="badge bg-light text-danger border border-danger">Urdu</small>
+                        </div>
+                        <p class="small mb-3">
+                            <i class="fas fa-briefcase text-danger me-1"></i>
+                            <strong>Experience:</strong> 20+ years
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
+                            <i class="fas fa-eye me-1"></i>View Profile
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-calendar me-1"></i>Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Card 2: Dr. Zahra Radmard -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
+                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
+                        <img src="{% static 'images/doctors/zahra-radmard.jpg' %}" alt="Dr. Zahra Radmard" class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dr. John Doe</h5>
+                        <p class="card-text text-danger fw-600 mb-2">
+                            <i class="fas fa-stethoscope me-2"></i>Internal Medicine Specialist
+                        </p>
+                        <p class="card-text small text-muted mb-3">Dedicated to improving healthcare in West Africa with over 6 years of professional experience providing high-quality medical care in Nigeria</p>
+                        <div class="mb-3">
+                            <small class="badge bg-light text-danger border border-danger">English</small>
+                            <small class="badge bg-light text-danger border border-danger">Persian</small>
+                        </div>
+                        <p class="small mb-3">
+                            <i class="fas fa-briefcase text-danger me-1"></i>
+                            <strong>Experience:</strong> 6+ years
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
+                            <i class="fas fa-eye me-1"></i>View Profile
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-calendar me-1"></i>Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Card 3: Dr. Farouq A.M. Abusamra -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
+                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
+                        <img src="{% static 'images/doctors/farouq-abusamra.jpg' %}" alt="Dr. Farouq A.M. Abusamra" class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dr. Emma Brown</h5>
+                        <p class="card-text text-danger fw-600 mb-2">
+                            <i class="fas fa-bone me-2"></i>Orthopedic Surgeon
+                        </p>
+                        <p class="card-text small text-muted mb-3">Expert orthopedic consultant with 20+ years of experience in trauma care, joint surgery, and advanced musculoskeletal treatment</p>
+                        <div class="mb-3">
+                            <small class="badge bg-light text-danger border border-danger">English</small>
+                            <small class="badge bg-light text-danger border border-danger">Arabic</small>
+                        </div>
+                        <p class="small mb-3">
+                            <i class="fas fa-briefcase text-danger me-1"></i>
+                            <strong>Experience:</strong> 20+ years
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
+                            <i class="fas fa-eye me-1"></i>View Profile
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-calendar me-1"></i>Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Card 4: Dr. Leila Moradi -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
+                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
+                        <img src="{% static 'images/doctors/leila-moradi.jpg' %}" alt="Dr. Leila Moradi" class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dr. Alex Smith</h5>
+                        <p class="card-text text-danger fw-600 mb-2">
+                            <i class="fas fa-child me-2"></i>Pediatrics & Allergy Specialist
+                        </p>
+                        <p class="card-text small text-muted mb-3">Compassionate Pediatrician and Allergy & Clinical Immunology Subspecialist with 15 years of experience providing exceptional care for children</p>
+                        <div class="mb-3">
+                            <small class="badge bg-light text-danger border border-danger">English</small>
+                            <small class="badge bg-light text-danger border border-danger">Persian</small>
+                        </div>
+                        <p class="small mb-3">
+                            <i class="fas fa-briefcase text-danger me-1"></i>
+                            <strong>Experience:</strong> 15+ years
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
+                            <i class="fas fa-eye me-1"></i>View Profile
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-calendar me-1"></i>Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Card 5: Dr. Asad M. Saadat -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
+                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
+                        <img src="{% static 'images/doctors/asad-saadat.jpg' %}" alt="Dr. Asad M. Saadat" class="w-100 h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dr. Taylor Lee</h5>
+                        <p class="card-text text-danger fw-600 mb-2">
+                            <i class="fas fa-heart me-2"></i>Cardiologist Consultant
+                        </p>
+                        <p class="card-text small text-muted mb-3">Highly experienced Cardiology Consultant with 18+ years of expertise in diagnosing and treating complex heart conditions</p>
+                        <div class="mb-3">
+                            <small class="badge bg-light text-danger border border-danger">English</small>
+                            <small class="badge bg-light text-danger border border-danger">Arabic</small>
+                        </div>
+                        <p class="small mb-3">
+                            <i class="fas fa-briefcase text-danger me-1"></i>
+                            <strong>Experience:</strong> 18+ years
+                        </p>
+                    </div>
+                    <div class="card-footer bg-light border-0">
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
+                            <i class="fas fa-eye me-1"></i>View Profile
+                        </a>
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-calendar me-1"></i>Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="my-5 py-5 text-center rounded" style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
+        <h3 class="fw-bold mb-3">Can't Find Your Provider?</h3>
+        <p class="mb-4 text-muted lead">Call us at <strong>+234 805 544 4565</strong> or email <strong>info@holcare.com</strong></p>
+        <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg fw-bold">
+            <i class="fas fa-envelope me-2"></i>Contact Us
+        </a>
+    </section>
+</div>
+
+<!-- Provider Modal -->
+<div class="modal fade" id="providerModal" tabindex="-1" aria-labelledby="providerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border-bottom: none;">
+                <h5 class="modal-title fw-bold" id="providerModalLabel">
+                    <i class="fas fa-user-md me-2"></i>Provider Profile
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Provider details will load here</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.provider-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.provider-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15) !important;
+}
+
+.provider-image-wrapper {
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+}
+
+.card-title {
+    color: var(--primary-dark);
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+</style>
+{% endblock %}

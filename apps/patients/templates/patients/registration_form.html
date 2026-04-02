@@ -1,0 +1,428 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Patient Registration - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Page Header -->
+            <div class="mb-5 text-center">
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--primary-color);">
+                    <i class="fas fa-hospital-user me-2"></i>Patient Registration
+                </h1>
+                <p class="lead text-muted">Complete this form to register with Holcare Health & Wellness Clinic</p>
+            </div>
+
+            <!-- Messages -->
+            {% if messages %}
+                <div class="mb-4">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Registration Form -->
+            <form method="POST" class="needs-validation" novalidate id="registrationForm">
+                {% csrf_token %}
+                
+                <!-- File Number Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-file-invoice me-2"></i>File Number</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            {{ form.file_number }}
+                            <small class="text-muted d-block mt-2">Leave empty for auto-generation</small>
+                            {% if form.file_number.errors %}
+                                <div class="invalid-feedback d-block">{{ form.file_number.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Type Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-user-check me-2"></i>Patient Type</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            {% for value, label in form.patient_type %}
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" id="patient_type_{{ forloop.counter }}" 
+                                               name="patient_type" value="{{ value }}" {% if form.patient_type.value == value %}checked{% endif %} required>
+                                        <label class="form-check-label" for="patient_type_{{ forloop.counter }}">
+                                            {{ label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% if form.patient_type.errors %}
+                            <div class="invalid-feedback d-block">{{ form.patient_type.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-user me-2"></i>Personal Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Name Row -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_first_name" class="form-label">{{ form.first_name.label }}</label>
+                                {{ form.first_name }}
+                                {% if form.first_name.errors %}<div class="invalid-feedback d-block">{{ form.first_name.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_last_name" class="form-label">{{ form.last_name.label }}</label>
+                                {{ form.last_name }}
+                                {% if form.last_name.errors %}<div class="invalid-feedback d-block">{{ form.last_name.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Gender Row -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label class="form-label">{{ form.gender.label }}</label>
+                                <div class="row g-3">
+                                    {% for value, label in form.gender %}
+                                        <div class="col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="gender_{{ forloop.counter }}" 
+                                                       name="gender" value="{{ value }}" {% if form.gender.value == value %}checked{% endif %} required>
+                                                <label class="form-check-label" for="gender_{{ forloop.counter }}">
+                                                    {{ label }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if form.gender.errors %}<div class="invalid-feedback d-block">{{ form.gender.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <!-- DOB & Marital Status Row -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_date_of_birth" class="form-label">{{ form.date_of_birth.label }}</label>
+                                {{ form.date_of_birth }}
+                                {% if form.date_of_birth.errors %}<div class="invalid-feedback d-block">{{ form.date_of_birth.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_marital_status" class="form-label">{{ form.marital_status.label }}</label>
+                                {{ form.marital_status }}
+                                {% if form.marital_status.errors %}<div class="invalid-feedback d-block">{{ form.marital_status.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Nationality & Occupation Row -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_nationality" class="form-label">{{ form.nationality.label }}</label>
+                                {{ form.nationality }}
+                                {% if form.nationality.errors %}<div class="invalid-feedback d-block">{{ form.nationality.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_occupation" class="form-label">{{ form.occupation.label }}</label>
+                                {{ form.occupation }}
+                                {% if form.occupation.errors %}<div class="invalid-feedback d-block">{{ form.occupation.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Company Row -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="id_company" class="form-label">{{ form.company.label }}</label>
+                                {{ form.company }}
+                                {% if form.company.errors %}<div class="invalid-feedback d-block">{{ form.company.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Identification Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-id-card me-2"></i>Identification</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_national_id_no" class="form-label">{{ form.national_id_no.label }}</label>
+                                {{ form.national_id_no }}
+                                {% if form.national_id_no.errors %}<div class="invalid-feedback d-block">{{ form.national_id_no.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_passport_no" class="form-label">{{ form.passport_no.label }}</label>
+                                {{ form.passport_no }}
+                                {% if form.passport_no.errors %}<div class="invalid-feedback d-block">{{ form.passport_no.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+                        <small class="text-muted">Please provide at least one form of identification</small>
+                    </div>
+                </div>
+
+                <!-- Insurance Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Insurance Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">{{ form.has_health_insurance.label }}</label>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input insurance-toggle" type="radio" id="insurance_yes" 
+                                               name="has_health_insurance" value="True" {% if form.has_health_insurance.value %}checked{% endif %}>
+                                        <label class="form-check-label" for="insurance_yes">Yes</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input insurance-toggle" type="radio" id="insurance_no" 
+                                               name="has_health_insurance" value="False" {% if not form.has_health_insurance.value %}checked{% endif %}>
+                                        <label class="form-check-label" for="insurance_no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if form.has_health_insurance.errors %}<div class="invalid-feedback d-block">{{ form.has_health_insurance.errors }}</div>{% endif %}
+                        </div>
+
+                        <div class="mb-3" id="insurance_company_field">
+                            <label for="id_insurance_company" class="form-label">{{ form.insurance_company.label }}</label>
+                            {{ form.insurance_company }}
+                            {% if form.insurance_company.errors %}<div class="invalid-feedback d-block">{{ form.insurance_company.errors }}</div>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-phone me-2"></i>Emergency Contact</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_emergency_contact_name" class="form-label">{{ form.emergency_contact_name.label }}</label>
+                                {{ form.emergency_contact_name }}
+                                {% if form.emergency_contact_name.errors %}<div class="invalid-feedback d-block">{{ form.emergency_contact_name.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_emergency_contact_phone" class="form-label">{{ form.emergency_contact_phone.label }}</label>
+                                {{ form.emergency_contact_phone }}
+                                {% if form.emergency_contact_phone.errors %}<div class="invalid-feedback d-block">{{ form.emergency_contact_phone.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Address Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="id_present_address" class="form-label">{{ form.present_address.label }}</label>
+                            {{ form.present_address }}
+                            {% if form.present_address.errors %}<div class="invalid-feedback d-block">{{ form.present_address.errors }}</div>{% endif %}
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_city" class="form-label">{{ form.city.label }}</label>
+                                {{ form.city }}
+                                {% if form.city.errors %}<div class="invalid-feedback d-block">{{ form.city.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_state" class="form-label">{{ form.state.label }}</label>
+                                {{ form.state }}
+                                {% if form.state.errors %}<div class="invalid-feedback d-block">{{ form.state.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_postal_code" class="form-label">{{ form.postal_code.label }}</label>
+                                {{ form.postal_code }}
+                                {% if form.postal_code.errors %}<div class="invalid-feedback d-block">{{ form.postal_code.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_country" class="form-label">{{ form.country.label }}</label>
+                                {{ form.country }}
+                                {% if form.country.errors %}<div class="invalid-feedback d-block">{{ form.country.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-envelope me-2"></i>Contact Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_phone" class="form-label">{{ form.phone.label }}</label>
+                                {{ form.phone }}
+                                {% if form.phone.errors %}<div class="invalid-feedback d-block">{{ form.phone.errors }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_email" class="form-label">{{ form.email.label }}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}<div class="invalid-feedback d-block">{{ form.email.errors }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information Section -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                        <h5 class="mb-0"><i class="fas fa-question-circle me-2"></i>Additional Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="id_how_hear_about_us" class="form-label">{{ form.how_hear_about_us.label }}</label>
+                            {{ form.how_hear_about_us }}
+                            {% if form.how_hear_about_us.errors %}<div class="invalid-feedback d-block">{{ form.how_hear_about_us.errors }}</div>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions Section -->
+                <div class="card mb-4 border-0 shadow-lg border-danger">
+                    <div class="card-header" style="background: #f8f9fa; border-bottom: 2px solid var(--primary-color);">
+                        <h5 class="mb-0"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Terms & Acknowledgement</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info" role="alert">
+                            <strong>Important:</strong> Please read the following acknowledgement carefully before submitting your registration.
+                        </div>
+                        
+                        <p class="mb-3" style="font-size: 0.95rem; line-height: 1.6;">
+                            <strong>Acknowledgement:</strong> The information provided in this patient registration form is for administrative purpose only 
+                            and does not constitute medical advice or establish a doctor-patient relationship. By submitting this form, you acknowledge 
+                            that you understand and agree to these terms.
+                        </p>
+
+                        <div class="form-check">
+                            {{ form.terms_acknowledged }}
+                            <label class="form-check-label" for="id_terms_acknowledged">
+                                I acknowledge and agree to the terms
+                            </label>
+                            {% if form.terms_acknowledged.errors %}<div class="invalid-feedback d-block">{{ form.terms_acknowledged.errors }}</div>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-between mb-5">
+                    <a href="{% url 'pages_frontend:home' %}" class="btn btn-outline-secondary btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Back
+                    </a>
+                    <button type="submit" class="btn btn-danger btn-lg fw-bold">
+                        <i class="fas fa-paper-plane me-2"></i>Submit Registration
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle insurance company field visibility
+    const insuranceToggles = document.querySelectorAll('.insurance-toggle');
+    const insuranceCompanyField = document.getElementById('insurance_company_field');
+    
+    function toggleInsuranceField() {
+        const isInsured = document.getElementById('insurance_yes').checked;
+        insuranceCompanyField.style.display = isInsured ? 'block' : 'none';
+    }
+    
+    insuranceToggles.forEach(toggle => {
+        toggle.addEventListener('change', toggleInsuranceField);
+    });
+    
+    // Initial state
+    toggleInsuranceField();
+    
+    // Form validation
+    const form = document.getElementById('registrationForm');
+    form.addEventListener('submit', function(e) {
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    });
+});
+</script>
+
+<style>
+.card-header {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(221, 39, 39, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(221, 39, 39, 0.25);
+}
+
+.btn-danger:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.invalid-feedback {
+    color: var(--primary-color);
+    font-size: 0.875em;
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+</style>
+{% endblock %}

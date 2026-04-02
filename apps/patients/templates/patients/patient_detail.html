@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Patient Details - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 fw-bold mb-3" style="color: var(--primary-color);">
+                <i class="fas fa-user me-2"></i>Patient Details
+            </h1>
+            <p class="lead text-muted">Complete patient information</p>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="row mb-3">
+        <div class="col-lg-10 mx-auto">
+            <a href="{% url 'patients:patient-list' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to List
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Information Card -->
+    <div class="row mb-4">
+        <div class="col-lg-10 mx-auto">
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-user-circle me-2"></i>Patient Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p class="mb-2"><strong>Full Name:</strong></p>
+                            <p class="h5" style="color: var(--primary-color);">{{ patient.full_name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-2"><strong>File Number:</strong></p>
+                            <p class="h5 badge bg-danger">{{ patient.file_number }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Gender:</strong></p>
+                            <p>{{ patient.get_gender_display }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Date of Birth:</strong></p>
+                            <p>{{ patient.date_of_birth|date:"F d, Y" }} (Age: {{ patient.age }})</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Marital Status:</strong></p>
+                            <p>{{ patient.get_marital_status_display }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Type & Status -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body text-center">
+                            <p class="text-muted mb-2">Patient Type</p>
+                            <p class="h5"><span class="badge bg-info">{{ patient.get_patient_type_display }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body text-center">
+                            <p class="text-muted mb-2">Status</p>
+                            <p class="h5">
+                                {% if patient.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Inactive</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employment & Contact -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-briefcase me-2"></i>Employment & Contact</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Nationality:</strong></p>
+                            <p>{{ patient.nationality }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Occupation:</strong></p>
+                            <p>{{ patient.occupation|default:"Not provided" }}</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Company:</strong></p>
+                            <p>{{ patient.company|default:"Not provided" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Phone:</strong></p>
+                            <p><a href="tel:{{ patient.phone }}">{{ patient.phone }}</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mb-1"><strong>Email:</strong></p>
+                            <p><a href="mailto:{{ patient.email }}">{{ patient.email }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identification -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-id-card me-2"></i>Identification</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>National ID No.:</strong></p>
+                            <p>{{ patient.national_id_no|default:"Not provided" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Passport No.:</strong></p>
+                            <p>{{ patient.passport_no|default:"Not provided" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insurance Information -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Insurance Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Has Health Insurance:</strong></p>
+                            <p>
+                                {% if patient.has_health_insurance %}
+                                    <span class="badge bg-success">Yes</span>
+                                {% else %}
+                                    <span class="badge bg-danger">No</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Insurance Company:</strong></p>
+                            <p>{{ patient.insurance_company|default:"Not applicable" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-phone me-2"></i>Emergency Contact</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Contact Name:</strong></p>
+                            <p>{{ patient.emergency_contact_name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Contact Phone:</strong></p>
+                            <p><a href="tel:{{ patient.emergency_contact_phone }}">{{ patient.emergency_contact_phone }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Information -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Address Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <p class="mb-1"><strong>Address:</strong></p>
+                        <p>{{ patient.present_address }}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>City:</strong></p>
+                            <p>{{ patient.city }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>State/Province:</strong></p>
+                            <p>{{ patient.state }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Postal Code:</strong></p>
+                            <p>{{ patient.postal_code|default:"Not provided" }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mb-1"><strong>Country:</strong></p>
+                            <p>{{ patient.country }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h5 class="mb-0"><i class="fas fa-question-circle me-2"></i>Additional Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>How did you hear about us:</strong></p>
+                            <p>{{ patient.get_how_hear_about_us_display }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Terms Acknowledged:</strong></p>
+                            <p>
+                                {% if patient.terms_acknowledged %}
+                                    <span class="badge bg-success">Yes</span>
+                                {% else %}
+                                    <span class="badge bg-danger">No</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Metadata -->
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-header" style="background: #f8f9fa; border-bottom: 2px solid var(--primary-color);">
+                    <h5 class="mb-0"><i class="fas fa-clock me-2"></i>Registration Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Registration Date:</strong></p>
+                            <p>{{ patient.registration_date|date:"F d, Y H:i" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Last Updated:</strong></p>
+                            <p>{{ patient.updated_date|date:"F d, Y H:i" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-between mb-5">
+                <a href="{% url 'patients:patient-list' %}" class="btn btn-outline-secondary btn-lg">
+                    <i class="fas fa-arrow-left me-2"></i>Back to List
+                </a>
+                <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
+                    <i class="fas fa-calendar-check me-2"></i>Schedule Appointment
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card-header {
+        border-bottom: 3px solid var(--primary-color);
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    @media (max-width: 768px) {
+        .display-4 {
+            font-size: 2rem;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+    }
+</style>
+{% endblock %}

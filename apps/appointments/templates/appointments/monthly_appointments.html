@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .monthly-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 15px;
+    }
+    
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .header-section h1 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin: 0;
+    }
+    
+    .month-navigation {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .month-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2c3e50;
+        min-width: 200px;
+        text-align: center;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: #3498db;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+    
+    .nav-btn:hover {
+        background: #2980b9;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin: 0;
+    }
+    
+    .calendar-wrapper {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+    }
+    
+    .calendar-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+    }
+    
+    .calendar-table th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .calendar-cell {
+        border: 1px solid #e0e0e0;
+        padding: 0.75rem;
+        min-height: 100px;
+        vertical-align: top;
+        position: relative;
+        background: white;
+        transition: background 0.3s;
+    }
+    
+    .calendar-cell:hover {
+        background: #f8f9fa;
+    }
+    
+    .calendar-cell.other-month {
+        background: #f5f5f5;
+        color: #bbb;
+    }
+    
+    .calendar-cell.today {
+        background: #e3f2fd;
+        border: 2px solid #2196f3;
+    }
+    
+    .cell-day {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cell-day.other-month {
+        color: #bbb;
+    }
+    
+    .appointments-list {
+        font-size: 0.75rem;
+        max-height: 70px;
+        overflow-y: auto;
+    }
+    
+    .appointment-item {
+        padding: 0.25rem 0.4rem;
+        margin-bottom: 0.25rem;
+        border-radius: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .appointment-item:hover {
+        padding-left: 0.6rem;
+        font-weight: 600;
+    }
+    
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+    
+    .status-confirmed {
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    .status-completed {
+        background: #d1e7f0;
+        color: #0c5460;
+    }
+    
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+    
+    .status-no-show {
+        background: #e7d4e0;
+        color: #6c1538;
+    }
+    
+    .status-counts {
+        font-size: 0.7rem;
+        color: #7f8c8d;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .legend {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+    }
+    
+    @media (max-width: 768px) {
+        .calendar-table {
+            font-size: 0.85rem;
+        }
+        
+        .calendar-cell {
+            min-height: 80px;
+            padding: 0.5rem;
+        }
+        
+        .cell-day {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="monthly-container">
+    <!-- Header -->
+    <div class="header-section">
+        <div>
+            <h1>Appointment Calendar</h1>
+            <p class="text-muted">View and manage appointments by month</p>
+        </div>
+        <a href="{% url 'appointments:booking' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> New Appointment
+        </a>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="alert-container mb-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Statistics -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <p class="stat-number">{{ total_appointments }}</p>
+            <p class="stat-label">Total Appointments</p>
+        </div>
+        <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <p class="stat-number">{{ year }}</p>
+            <p class="stat-label">Year</p>
+        </div>
+        <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <p class="stat-number">{{ month_name }}</p>
+            <p class="stat-label">Month</p>
+        </div>
+    </div>
+
+    <!-- Calendar Navigation -->
+    <div class="calendar-wrapper">
+        <div class="month-navigation" style="margin-bottom: 2rem; justify-content: center;">
+            <a href="{% url 'appointments:monthly-appointments' prev_year prev_month %}" class="nav-btn">
+                <i class="fas fa-chevron-left"></i> Previous
+            </a>
+            <div class="month-title">{{ month_name }} {{ year }}</div>
+            <a href="{% url 'appointments:monthly-appointments' next_year next_month %}" class="nav-btn">
+                Next <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <!-- Calendar Table -->
+        <table class="calendar-table">
+            <thead>
+                <tr>
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for week in calendar %}
+                    <tr>
+                        {% for day_info in week %}
+                            {% if day_info.day == 0 %}
+                                <td class="calendar-cell other-month"></td>
+                            {% else %}
+                                <td class="calendar-cell {% if day_info.is_today %}today{% endif %}">
+                                    <div class="cell-day">{{ day_info.day }}</div>
+                                    
+                                    {% if day_info.appointments %}
+                                        <div class="appointments-list">
+                                            {% for appt in day_info.appointments %}
+                                                <div class="appointment-item status-{{ appt.status }}"
+                                                     title="Dr. {{ appt.provider.get_full_name }} - {{ appt.start_time|time:'h:i A' }}">
+                                                    👤 {{ appt.get_patient_display_name|truncatewords:2 }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        
+                                        <div class="status-counts">
+                                            {% if day_info.status_counts.pending %}✓ {{ day_info.status_counts.pending }}{% endif %}
+                                            {% if day_info.status_counts.confirmed %} C{{ day_info.status_counts.confirmed }}{% endif %}
+                                            {% if day_info.status_counts.completed %} ✔ {{ day_info.status_counts.completed }}{% endif %}
+                                            {% if day_info.status_counts.cancelled %} ✕ {{ day_info.status_counts.cancelled }}{% endif %}
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fff3cd;"></div>
+                <span>Pending</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #d4edda;"></div>
+                <span>Confirmed</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #d1e7f0;"></div>
+                <span>Completed</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f8d7da;"></div>
+                <span>Cancelled</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e7d4e0;"></div>
+                <span>No Show</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

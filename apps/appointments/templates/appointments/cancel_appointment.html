@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cancel Appointment - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .cancel-container {
+        max-width: 500px;
+        margin: 3rem auto;
+        padding: 0 15px;
+    }
+    
+    .cancel-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+    
+    .cancel-icon {
+        font-size: 3rem;
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .cancel-title {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+    
+    .appointment-summary {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 4px;
+        margin: 1.5rem 0;
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .summary-row:last-child {
+        border-bottom: none;
+    }
+    
+    .summary-label {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    
+    .summary-value {
+        color: #555;
+    }
+    
+    .warning-box {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 1rem;
+        border-radius: 4px;
+        margin: 1.5rem 0;
+    }
+    
+    .warning-box p {
+        margin: 0;
+        color: #856404;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+    }
+    
+    .btn-danger {
+        background: #e74c3c;
+        color: white;
+        flex: 1;
+    }
+    
+    .btn-danger:hover {
+        background: #c0392b;
+    }
+    
+    .btn-secondary {
+        background: #95a5a6;
+        color: white;
+        flex: 1;
+    }
+    
+    .btn-secondary:hover {
+        background: #7f8c8d;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="cancel-container">
+    <div class="cancel-card">
+        <!-- Icon -->
+        <div class="cancel-icon">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+
+        <!-- Title -->
+        <h1 class="cancel-title">Cancel Appointment</h1>
+        <p style="text-align: center; color: #7f8c8d; margin-bottom: 1.5rem;">
+            Are you sure you want to cancel this appointment?
+        </p>
+
+        <!-- Appointment Summary -->
+        <div class="appointment-summary">
+            <div class="summary-row">
+                <span class="summary-label">Patient:</span>
+                <span class="summary-value">{{ appointment.get_patient_display_name }}</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Provider:</span>
+                <span class="summary-value">Dr. {{ appointment.provider.get_full_name }}</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Date:</span>
+                <span class="summary-value">{{ appointment.appointment_date|date:"F d, Y" }}</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Time:</span>
+                <span class="summary-value">{{ appointment.start_time|time:"h:i A" }} - {{ appointment.end_time|time:"h:i A" }}</span>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="warning-box">
+            <p>
+                <strong>⚠️ Note:</strong> This action cannot be undone. The appointment will be marked as cancelled 
+                in the system.
+            </p>
+        </div>
+
+        <!-- Confirmation Form -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-check"></i> Confirm Cancellation
+                </button>
+                <a href="{% url 'appointments:appointment-detail' appointment.pk %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Keep Appointment
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .booking-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 15px;
+    }
+    
+    .form-section {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-control:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+    
+    .provider-info {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: white;
+        border-radius: 4px;
+        border-left: 4px solid #3498db;
+        display: none;
+    }
+    
+    .provider-info.show {
+        display: block;
+    }
+    
+    .btn-group-custom {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-group-custom .btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid #ddd;
+    }
+    
+    .btn-group-custom .btn.active {
+        border-color: #3498db;
+        background-color: #e3f2fd;
+        color: #3498db;
+    }
+    
+    .success-icon {
+        font-size: 3rem;
+        color: #27ae60;
+        margin-bottom: 1rem;
+    }
+    
+    .required::after {
+        content: " *";
+        color: red;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="booking-container">
+    <!-- Page Header -->
+    <div class="header-section mb-5 text-center">
+        <h1 class="display-4 mb-3">Book Your Appointment</h1>
+        <p class="text-muted lead">Schedule a consultation with our experienced healthcare professionals</p>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="alert-container mb-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post" id="appointmentForm" class="needs-validation" novalidate>
+        {% csrf_token %}
+
+        <!-- Patient Type Selection -->
+        <div class="form-section">
+            <label class="section-title required">Are you a registered patient?</label>
+            <div class="btn-group w-100" role="group">
+                <input type="radio" class="btn-check" name="form_type" id="guestOption" value="guest" {% if form_type != "registered" %}checked{% endif %}>
+                <label class="btn btn-outline-primary w-50" for="guestOption">No, I'm a Guest</label>
+
+                <input type="radio" class="btn-check" name="form_type" id="registeredOption" value="registered" {% if form_type == "registered" %}checked{% endif %}>
+                <label class="btn btn-outline-primary w-50" for="registeredOption">Yes, I'm Registered</label>
+            </div>
+        </div>
+
+        <!-- Registered Patient Section -->
+        <div id="registeredPatientSection" style="display: none;">
+            <div class="form-section">
+                <h3 class="section-title">Select Your Profile</h3>
+                
+                <div class="form-group">
+                    <label for="id_registered_patient" class="form-label required">Your Name</label>
+                    {{ registered_form.registered_patient }}
+                    {% if registered_form.registered_patient.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ registered_form.registered_patient.errors.0 }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Registered Appointment Fields -->
+                <div class="form-section mt-4">
+                    <h3 class="section-title">Appointment Details</h3>
+
+                    <div class="form-group">
+                        <label for="{{ registered_form.provider.id_for_label }}" class="form-label required">Select Provider</label>
+                        {{ registered_form.provider }}
+                        {% if registered_form.provider.errors %}
+                            <div class="invalid-feedback d-block">{{ registered_form.provider.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ registered_form.appointment_date.id_for_label }}" class="form-label required">Date</label>
+                                {{ registered_form.appointment_date }}
+                                {% if registered_form.appointment_date.errors %}
+                                    <div class="invalid-feedback d-block">{{ registered_form.appointment_date.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ registered_form.start_time.id_for_label }}" class="form-label required">Start Time</label>
+                                {{ registered_form.start_time }}
+                                {% if registered_form.start_time.errors %}
+                                    <div class="invalid-feedback d-block">{{ registered_form.start_time.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="{{ registered_form.end_time.id_for_label }}" class="form-label required">End Time</label>
+                                {{ registered_form.end_time }}
+                                {% if registered_form.end_time.errors %}
+                                    <div class="invalid-feedback d-block">{{ registered_form.end_time.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ registered_form.reason.id_for_label }}" class="form-label required">Reason for Visit</label>
+                        {{ registered_form.reason }}
+                        {% if registered_form.reason.errors %}
+                            <div class="invalid-feedback d-block">{{ registered_form.reason.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ registered_form.notes.id_for_label }}" class="form-label">Additional Notes</label>
+                        {{ registered_form.notes }}
+                        {% if registered_form.notes.errors %}
+                            <div class="invalid-feedback d-block">{{ registered_form.notes.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guest Patient Section -->
+        <div id="guestPatientSection">
+            <div class="form-section">
+                <h3 class="section-title">Your Information</h3>
+
+                <div class="form-group">
+                    <label for="id_patient_name" class="form-label required">Full Name</label>
+                    {{ guest_form.patient_name }}
+                    {% if guest_form.patient_name.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.patient_name.errors.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_patient_email" class="form-label required">Email</label>
+                    {{ guest_form.patient_email }}
+                    {% if guest_form.patient_email.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.patient_email.errors.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_patient_phone" class="form-label required">Phone Number</label>
+                    {{ guest_form.patient_phone }}
+                    {% if guest_form.patient_phone.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.patient_phone.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Guest Appointment Details -->
+            <div class="form-section">
+                <h3 class="section-title">Appointment Details</h3>
+
+                <div class="form-group">
+                    <label for="{{ guest_form.provider.id_for_label }}" class="form-label required">Select Provider</label>
+                    {{ guest_form.provider }}
+                    {% if guest_form.provider.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.provider.errors.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ guest_form.appointment_date.id_for_label }}" class="form-label required">Date</label>
+                            {{ guest_form.appointment_date }}
+                            {% if guest_form.appointment_date.errors %}
+                                <div class="invalid-feedback d-block">{{ guest_form.appointment_date.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ guest_form.start_time.id_for_label }}" class="form-label required">Start Time</label>
+                            {{ guest_form.start_time }}
+                            {% if guest_form.start_time.errors %}
+                                <div class="invalid-feedback d-block">{{ guest_form.start_time.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ guest_form.end_time.id_for_label }}" class="form-label required">End Time</label>
+                            {{ guest_form.end_time }}
+                            {% if guest_form.end_time.errors %}
+                                <div class="invalid-feedback d-block">{{ guest_form.end_time.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ guest_form.reason.id_for_label }}" class="form-label required">Reason for Visit</label>
+                    {{ guest_form.reason }}
+                    {% if guest_form.reason.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.reason.errors.0 }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ guest_form.notes.id_for_label }}" class="form-label">Additional Notes</label>
+                    {{ guest_form.notes }}
+                    {% if guest_form.notes.errors %}
+                        <div class="invalid-feedback d-block">{{ guest_form.notes.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Buttons -->
+        <div class="form-section text-center">
+            <button type="submit" class="btn btn-primary btn-lg me-2">
+                <i class="fas fa-calendar-check"></i> Book Appointment
+            </button>
+            <a href="/" class="btn btn-secondary btn-lg">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const guestOption = document.getElementById('guestOption');
+    const registeredOption = document.getElementById('registeredOption');
+    const guestSection = document.getElementById('guestPatientSection');
+    const registeredSection = document.getElementById('registeredPatientSection');
+    
+    // Get all form inputs from both sections
+    const guestInputs = guestSection.querySelectorAll('input, select, textarea');
+    const registeredInputs = registeredSection.querySelectorAll('input, select, textarea');
+
+    function updateSections() {
+        if (registeredOption.checked) {
+            // Show registered, hide guest
+            guestSection.style.display = 'none';
+            registeredSection.style.display = 'block';
+            
+            // Disable guest inputs so they aren't validated or submitted
+            guestInputs.forEach(input => {
+                input.disabled = true;
+            });
+            
+            // Enable registered inputs
+            registeredInputs.forEach(input => {
+                input.disabled = false;
+            });
+        } else {
+            // Show guest, hide registered
+            guestSection.style.display = 'block';
+            registeredSection.style.display = 'none';
+            
+            // Enable guest inputs
+            guestInputs.forEach(input => {
+                input.disabled = false;
+            });
+            
+            // Disable registered inputs so they aren't validated or submitted
+            registeredInputs.forEach(input => {
+                input.disabled = true;
+            });
+        }
+    }
+
+    // Add event listeners
+    guestOption.addEventListener('change', updateSections);
+    registeredOption.addEventListener('change', updateSections);
+    
+    // Initialize based on current state
+    updateSections();
+});
+</script>
+{% endblock %}

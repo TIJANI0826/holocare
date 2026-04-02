@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Health Resources - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Educational materials and resources for patient health and wellness{% endblock %}
+
+{% block content %}
+<div class="resources-hero text-white py-5" style="background: linear-gradient(135deg, #dd2727 0%, #c21a1a 100%);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Health Resources</h1>
+        <p class="lead mb-0">Download educational materials and helpful resources</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <section>
+                <h2 class="mb-4">Browse Our Resources</h2>
+
+                <!-- Search and Filter -->
+                <div class="card mb-4 border-0 shadow-lg">
+                    <div class="card-body">
+                        <form class="resource-filter" method="GET">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Search resources..." aria-label="Search resources" style="border-color: #ddd;">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select form-select-lg" aria-label="Filter by category" style="border-color: #ddd;">
+                                        <option value="">All Categories</option>
+                                        <option value="guides">Guides</option>
+                                        <option value="videos">Videos</option>
+                                        <option value="checklists">Checklists</option>
+                                        <option value="forms">Forms</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Resource Cards -->
+                <div class="row g-4">
+                    <!-- Resource 1 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card border-0 shadow-lg">
+                            <div class="card-header bg-light border-0 py-4">
+                                <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Blood Pressure Management Guide</h5>
+                                <p class="card-text">Comprehensive guide for monitoring and managing blood pressure at home. Includes daily tracking chart and lifestyle tips.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-info">
+                                        <i class="fas fa-book me-1"></i>Guides
+                                    </small>
+                                    <small class="badge bg-warning">
+                                        <i class="fas fa-file me-1"></i>PDF
+                                    </small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i><strong>Added:</strong> March 20, 2024
+                                    <br>
+                                    <i class="fas fa-download me-2"></i><strong>1,250</strong> downloads
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold" download aria-label="Download Blood Pressure Management Guide">
+                                    <i class="fas fa-download me-2"></i>Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 2 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card border-0 shadow-lg">
+                            <div class="card-header bg-light border-0 py-4">
+                                <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Diabetes Management Checklist</h5>
+                                <p class="card-text">Daily and weekly checklist for managing diabetes, including medication schedule and meal planning tips.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-info">
+                                        <i class="fas fa-check-square me-1"></i>Checklists
+                                    </small>
+                                    <small class="badge bg-warning">
+                                        <i class="fas fa-file me-1"></i>PDF
+                                    </small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i><strong>Added:</strong> March 18, 2024
+                                    <br>
+                                    <i class="fas fa-download me-2"></i><strong>890</strong> downloads
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold" download aria-label="Download Diabetes Management Checklist">
+                                    <i class="fas fa-download me-2"></i>Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 3 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card border-0 shadow-lg">
+                            <div class="card-header bg-light border-0 py-4">
+                                <i class="fas fa-video fa-3x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Fitness Exercises for Seniors</h5>
+                                <p class="card-text">Video series featuring gentle exercises designed specifically for seniors to improve flexibility and strength.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-danger">
+                                        <i class="fas fa-video me-1"></i>Videos
+                                    </small>
+                                    <small class="badge bg-warning">
+                                        <i class="fas fa-clock me-1"></i>15 min
+                                    </small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i><strong>Added:</strong> March 15, 2024
+                                    <br>
+                                    <i class="fas fa-play me-2"></i><strong>2,340</strong> views
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold" aria-label="Watch Fitness Exercises for Seniors">
+                                    <i class="fas fa-play me-2"></i>Watch
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 4 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card border-0 shadow-lg">
+                            <div class="card-header bg-light border-0 py-4">
+                                <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">New Patient Registration Form</h5>
+                                <p class="card-text">Comprehensive health history form to complete before your first visit. Download and bring completed form to save time.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-info">
+                                        <i class="fas fa-clipboard me-1"></i>Forms
+                                    </small>
+                                    <small class="badge bg-warning">
+                                        <i class="fas fa-file me-1"></i>PDF
+                                    </small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i><strong>Updated:</strong> March 10, 2024
+                                    <br>
+                                    <i class="fas fa-download me-2"></i><strong>3,560</strong> downloads
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold" download aria-label="Download New Patient Registration Form">
+                                    <i class="fas fa-download me-2"></i>Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 5 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card border-0 shadow-lg">
+                            <div class="card-header bg-light border-0 py-4">
+                                <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Nutrition Guide for Heart Health</h5>
+                                <p class="card-text">Evidence-based nutrition guidelines to support cardiovascular health, including meal ideas and recipes.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-info">Guides</small>
+                                    <small class="badge bg-warning">PDF</small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i>Added: March 8, 2024
+                                    <br>
+                                    <i class="fas fa-download me-2"></i>1,780 downloads
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm" download aria-label="Download Nutrition Guide for Heart Health">
+                                    <i class="fas fa-download me-2"></i>Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 6 -->
+                    <div class="col-md-6">
+                        <div class="card h-100 resource-card">
+                            <div class="card-header bg-light">
+                                <i class="fas fa-video fa-2x text-danger"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Pain Management Techniques</h5>
+                                <p class="card-text">Video demonstrating various pain management techniques including breathing exercises and stretching routines.</p>
+                                <div class="mb-3">
+                                    <small class="badge bg-danger">Videos</small>
+                                    <small class="badge bg-warning">12 min</small>
+                                </div>
+                                <p class="text-muted small mb-3">
+                                    <i class="far fa-calendar me-2"></i>Added: March 1, 2024
+                                    <br>
+                                    <i class="fas fa-play me-2"></i>1,920 views
+                                </p>
+                                <a href="#" class="btn btn-danger btn-sm" aria-label="Watch Pain Management Techniques">
+                                    <i class="fas fa-play me-2"></i>Watch
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav class="mt-5" aria-label="Resource pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Categories Sidebar -->
+            <div class="card mb-4 sticky-top" style="top: 20px;">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-filter me-2"></i>Categories
+                    </h5>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-book me-2"></i>All Resources
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-file-pdf me-2"></i>Guides & Articles
+                            <span class="badge bg-primary float-end">24</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-clipboard-list me-2"></i>Checklists
+                            <span class="badge bg-primary float-end">8</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-video me-2"></i>Videos
+                            <span class="badge bg-primary float-end">12</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-form me-2"></i>Forms
+                            <span class="badge bg-primary float-end">6</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Resources -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-fire text-warning me-2"></i>Most Downloaded
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 pb-3 border-bottom">
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none">New Patient Form</a></h6>
+                            <small class="text-muted">3,560 downloads</small>
+                        </li>
+                        <li class="mb-3 pb-3 border-bottom">
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none">Blood Pressure Guide</a></h6>
+                            <small class="text-muted">1,250 downloads</small>
+                        </li>
+                        <li>
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none">Nutrition Guide</a></h6>
+                            <small class="text-muted">1,780 downloads</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

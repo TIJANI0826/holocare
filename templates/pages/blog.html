@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Health Blog - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Read articles and health tips from our medical professionals{% endblock %}
+
+{% block content %}
+<div class="blog-hero text-white py-5" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Health Blog</h1>
+        <p class="lead mb-0">Articles and health tips from our medical professionals</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <section>
+                <h2 class="mb-4">Latest Articles</h2>
+
+                <!-- Featured Article -->
+                <article class="card mb-4 blog-article featured-article border-0 shadow-lg">
+                    <div class="card-body p-5">
+                        <div class="mb-3">
+                            <span class="badge bg-success me-2">
+                                <i class="fas fa-star me-1"></i>Featured
+                            </span>
+                            <span class="badge bg-info">
+                                <i class="fas fa-heart me-1"></i>Wellness
+                            </span>
+                        </div>
+                        <h3 class="card-title display-6 fw-bold">Understanding Heart Health: Tips for a Healthier Cardiovascular System</h3>
+                        <div class="text-muted mb-4 pb-3 border-bottom">
+                            <small>
+                                <i class="far fa-calendar me-2"></i><strong>March 15, 2024</strong>
+                                <span class="mx-2">•</span>
+                                <i class="far fa-user me-2"></i><strong>Dr. John Doe</strong>
+                                <span class="mx-2">•</span>
+                                <i class="far fa-clock me-2"></i>5 min read
+                            </small>
+                        </div>
+                        <p class="card-text lead">Learn about the importance of cardiovascular health and discover practical steps you can take today to improve your heart health and reduce risk factors...</p>
+                        <a href="#" class="btn btn-danger btn-lg fw-bold">
+                            <i class="fas fa-arrow-right me-2"></i>Read Article
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Article List -->
+                <article class="card mb-4 blog-article border-0 shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-child fa-4x text-white opacity-75"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title fw-bold">Pediatric Care Tips: Keeping Your Children Healthy</h4>
+                                <div class="text-muted mb-3 small">
+                                    <i class="far fa-calendar me-2"></i><strong>March 10, 2024</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-user me-2"></i><strong>Dr. Sarah Smith</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-clock me-2"></i>4 min read
+                                </div>
+                                <p class="card-text">Essential tips and guidelines for maintaining your child's health, from proper nutrition to regular check-ups...</p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold">
+                                    <i class="fas fa-arrow-right me-1"></i>Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card mb-4 blog-article border-0 shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-4" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-capsules fa-4x text-white opacity-75"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title fw-bold">Medication Management: A Guide to Taking Your Medications Safely</h4>
+                                <div class="text-muted mb-3 small">
+                                    <i class="far fa-calendar me-2"></i><strong>March 5, 2024</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-user me-2"></i><strong>Dr. Michael Johnson</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-clock me-2"></i>5 min read
+                                </div>
+                                <p class="card-text">Learn about proper medication usage, potential interactions, and how to maintain a medication schedule...</p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold">
+                                    <i class="fas fa-arrow-right me-1"></i>Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card mb-4 blog-article border-0 shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-4" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-dumbbell fa-4x text-white opacity-75"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title fw-bold">The Importance of Exercise: Building a Fitness Routine That Works for You</h4>
+                                <div class="text-muted mb-3 small">
+                                    <i class="far fa-calendar me-2"></i><strong>February 28, 2024</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-user me-2"></i><strong>Dr. Sarah Smith</strong>
+                                    <span class="mx-2">•</span>
+                                    <i class="far fa-clock me-2"></i>6 min read
+                                </div>
+                                <p class="card-text">Discover how regular exercise can improve your health and find tips for starting a sustainable fitness routine...</p>
+                                <a href="#" class="btn btn-danger btn-sm fw-bold">
+                                    <i class="fas fa-arrow-right me-1"></i>Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pagination -->
+                <nav aria-label="Blog pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Search Sidebar -->
+            <div class="card mb-4 border-0 shadow-lg">
+                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
+                    <i class="fas fa-search me-2"></i>Search Articles
+                </div>
+                <div class="card-body">
+                    <form class="blog-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search blog..." aria-label="Search articles" style="border-color: #ddd;">
+                            <button class="btn btn-danger" type="submit" aria-label="Search" style="background-color: var(--primary-color);">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Categories Sidebar -->
+            <div class="card mb-4 border-0 shadow-lg">
+                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
+                    <i class="fas fa-list me-2"></i>Categories
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark fw-500">
+                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
+                                Wellness <span class="badge bg-light text-dark float-end">12</span>
+                            </a>
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark fw-500">
+                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
+                                Disease Management <span class="badge bg-light text-dark float-end">8</span>
+                            </a>
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark fw-500">
+                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
+                                Preventive Care <span class="badge bg-light text-dark float-end">10</span>
+                            </a>
+                        </li>
+                        <li class="mb-2 pb-2 border-bottom">
+                            <a href="#" class="text-decoration-none text-dark fw-500">
+                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
+                                Nutrition <span class="badge bg-light text-dark float-end">7</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark fw-500">
+                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
+                                Fitness <span class="badge bg-light text-dark float-end">9</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Recent Posts Sidebar -->
+            <div class="card border-0 shadow-lg">
+                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
+                    <i class="fas fa-clock me-2"></i>Recent Posts
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 pb-3 border-bottom">
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Heart Health Tips</a></h6>
+                            <small class="text-muted">
+                                <i class="far fa-calendar me-1"></i>March 15, 2024
+                            </small>
+                        </li>
+                        <li class="mb-3 pb-3 border-bottom">
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Pediatric Care Guide</a></h6>
+                            <small class="text-muted">
+                                <i class="far fa-calendar me-1"></i>March 10, 2024
+                            </small>
+                        </li>
+                        <li>
+                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Medication Safety</a></h6>
+                            <small class="text-muted">
+                                <i class="far fa-calendar me-1"></i>March 5, 2024
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

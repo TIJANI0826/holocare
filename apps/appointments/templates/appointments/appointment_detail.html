@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .detail-container {
+        max-width: 700px;
+        margin: 2rem auto;
+        padding: 0 15px;
+    }
+    
+    .detail-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    
+    .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .card-header h1 {
+        margin: 0;
+        font-size: 1.75rem;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .status-badge.pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+    
+    .status-badge.confirmed {
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    .status-badge.completed {
+        background: #d1e7f0;
+        color: #0c5460;
+    }
+    
+    .status-badge.cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+    
+    .card-body {
+        padding: 2rem;
+    }
+    
+    .info-group {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .info-group:last-of-type {
+        border-bottom: none;
+    }
+    
+    .info-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #7f8c8d;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .info-value {
+        font-size: 1.1rem;
+        color: #2c3e50;
+        font-weight: 500;
+    }
+    
+    .info-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    @media (max-width: 600px) {
+        .info-row {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+    }
+    
+    .btn-primary {
+        background: #3498db;
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        background: #2980b9;
+    }
+    
+    .btn-danger {
+        background: #e74c3c;
+        color: white;
+    }
+    
+    .btn-danger:hover {
+        background: #c0392b;
+    }
+    
+    .btn-secondary {
+        background: #95a5a6;
+        color: white;
+    }
+    
+    .btn-secondary:hover {
+        background: #7f8c8d;
+    }
+    
+    .provider-info {
+        background: #f0f7ff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        border-left: 4px solid #3498db;
+    }
+    
+    .provider-title {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <div class="detail-card">
+        <!-- Header -->
+        <div class="card-header">
+            <div>
+                <h1>Appointment Details</h1>
+                <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">
+                    {{ appointment.appointment_date|date:"l, F d, Y" }}
+                </p>
+            </div>
+            <span class="status-badge {{ appointment.status }}">
+                {{ appointment.get_status_display|upper }}
+            </span>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+            <!-- Patient Information -->
+            <div class="info-group">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">Patient Information</h3>
+                <div class="info-row">
+                    <div>
+                        <p class="info-label">Patient Name</p>
+                        <p class="info-value">{{ appointment.get_patient_display_name }}</p>
+                    </div>
+                    <div>
+                        <p class="info-label">Status</p>
+                        <p class="info-value">
+                            {% if appointment.is_confirmed %}
+                                <span style="color: #27ae60;">✓ Confirmed</span>
+                            {% else %}
+                                <span style="color: #f39c12;">⊙ Pending</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-row" style="margin-top: 1rem;">
+                    <div>
+                        <p class="info-label">Email</p>
+                        <p class="info-value">{{ appointment.get_patient_email }}</p>
+                    </div>
+                    <div>
+                        <p class="info-label">Phone</p>
+                        <p class="info-value">{{ appointment.get_patient_phone }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointment Details -->
+            <div class="info-group">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">Appointment Details</h3>
+                <div class="info-row">
+                    <div>
+                        <p class="info-label">Date</p>
+                        <p class="info-value">{{ appointment.appointment_date|date:"F d, Y" }}</p>
+                    </div>
+                    <div>
+                        <p class="info-label">Time</p>
+                        <p class="info-value">{{ appointment.start_time|time:"h:i A" }} - {{ appointment.end_time|time:"h:i A" }}</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem;">
+                    <p class="info-label">Reason for Visit</p>
+                    <p class="info-value">{{ appointment.reason }}</p>
+                </div>
+
+                {% if appointment.notes %}
+                    <div style="margin-top: 1rem;">
+                        <p class="info-label">Additional Notes</p>
+                        <p class="info-value">{{ appointment.notes }}</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Provider Information -->
+            <div class="provider-info">
+                <p class="provider-title">Assigned Provider</p>
+                <p class="info-row" style="display: block;">
+                    <strong style="color: #2c3e50;">Dr. {{ appointment.provider.get_full_name }}</strong>
+                </p>
+                {% if appointment.provider.specialty %}
+                    <p style="margin: 0.5rem 0 0 0; color: #7f8c8d;">
+                        Specialty: {{ appointment.provider.specialty.name }}
+                    </p>
+                {% endif %}
+            </div>
+
+            <!-- Timestamps -->
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e0e0e0;">
+                <p style="font-size: 0.85rem; color: #95a5a6; margin: 0;">
+                    Booked on: {{ appointment.created_at|date:"F d, Y h:i A" }}
+                    {% if appointment.updated_at != appointment.created_at %}
+                        | Last updated: {{ appointment.updated_at|date:"F d, Y h:i A" }}
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                {% if appointment.can_cancel %}
+                    <a href="{% url 'appointments:cancel-appointment' appointment.pk %}" class="btn btn-danger">
+                        <i class="fas fa-ban"></i> Cancel Appointment
+                    </a>
+                {% endif %}
+                <a href="{% url 'appointments:booking-confirmation' appointment.pk %}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Confirmation
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

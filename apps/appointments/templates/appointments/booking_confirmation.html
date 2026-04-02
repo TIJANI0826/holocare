@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Appointment Confirmation - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .confirmation-container {
+        max-width: 600px;
+        margin: 3rem auto;
+        padding: 0 15px;
+    }
+    
+    .confirmation-card {
+        background: white;
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .success-icon {
+        font-size: 4rem;
+        color: #27ae60;
+        margin-bottom: 1rem;
+        animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .confirmation-heading {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+    }
+    
+    .confirmation-message {
+        color: #7f8c8d;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .appointment-summary {
+        background: #f8f9fa;
+        border-left: 4px solid #3498db;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 4px;
+        text-align: left;
+    }
+    
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .summary-row:last-child {
+        border-bottom: none;
+    }
+    
+    .summary-label {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    
+    .summary-value {
+        color: #555;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+    
+    .status-pending {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .next-steps {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 4px;
+        text-align: left;
+    }
+    
+    .next-steps h4 {
+        color: #1976d2;
+        margin-bottom: 1rem;
+    }
+    
+    .next-steps ol {
+        margin: 0;
+        padding-left: 1.5rem;
+    }
+    
+    .next-steps li {
+        margin-bottom: 0.75rem;
+        color: #555;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="confirmation-container">
+    <div class="confirmation-card">
+        <!-- Success Icon -->
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="confirmation-heading">Appointment Booked!</h1>
+        <p class="confirmation-message">
+            Thank you for booking your appointment. We've received your request and will contact you soon to confirm.
+        </p>
+
+        <!-- Appointment Summary -->
+        <div class="appointment-summary">
+            <div class="summary-row">
+                <span class="summary-label">Patient Name:</span>
+                <span class="summary-value">{{ appointment.get_patient_display_name }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Email:</span>
+                <span class="summary-value">{{ appointment.get_patient_email }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Phone:</span>
+                <span class="summary-value">{{ appointment.get_patient_phone }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Provider:</span>
+                <span class="summary-value">Dr. {{ appointment.provider.get_full_name }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Date:</span>
+                <span class="summary-value">{{ appointment.appointment_date|date:"l, F d, Y" }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Time:</span>
+                <span class="summary-value">{{ appointment.start_time|time:"h:i A" }} - {{ appointment.end_time|time:"h:i A" }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Reason for Visit:</span>
+                <span class="summary-value">{{ appointment.reason|truncatewords:10 }}</span>
+            </div>
+            
+            <div class="summary-row">
+                <span class="summary-label">Status:</span>
+                <span class="summary-value">
+                    <span class="status-badge status-pending">{{ appointment.get_status_display|upper }}</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h4><i class="fas fa-info-circle"></i> What's Next?</h4>
+            <ol>
+                <li>We will review your appointment request</li>
+                <li>Our team will contact you via email or phone to confirm</li>
+                <li>You'll receive a confirmation with the final details</li>
+                <li>Please arrive 10 minutes before your appointment</li>
+            </ol>
+        </div>
+
+        <!-- Important Notes -->
+        <div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 1.5rem; margin: 2rem 0; border-radius: 4px; text-align: left;">
+            <p style="margin: 0; color: #666;">
+                <strong>📌 Important:</strong> If you need to cancel or reschedule, please contact us at least 24 hours before your appointment.
+            </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="{% url 'appointments:appointment-detail' appointment.pk %}" class="btn btn-primary">
+                <i class="fas fa-eye"></i> View Details
+            </a>
+            <a href="/" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

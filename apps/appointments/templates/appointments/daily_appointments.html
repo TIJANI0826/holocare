@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} - Holcare Health & Wellness Clinic{% endblock %}
+
+{% block extra_css %}
+<style>
+    .daily-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 15px;
+    }
+    
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .header-section h1 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin: 0;
+    }
+    
+    .date-navigation {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .date-box {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: #3498db;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+    
+    .nav-btn:hover {
+        background: #2980b9;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .provider-filter {
+        margin-bottom: 2rem;
+    }
+    
+    .filter-label {
+        font-weight: 600;
+        margin-right: 1rem;
+        color: #2c3e50;
+    }
+    
+    .provider-select {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        cursor: pointer;
+    }
+    
+    .appointments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .appointment-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .appointment-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+    
+    .appointment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+    
+    .patient-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    
+    .status-pending {
+        background: #fff3cd;
+        color: #856404;
+    }
+    
+    .status-confirmed {
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    .status-completed {
+        background: #d1e7f0;
+        color: #0c5460;
+    }
+    
+    .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+    }
+    
+    .status-no-show {
+        background: #e7d4e0;
+        color: #6c1538;
+    }
+    
+    .appointment-info {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .appointment-info:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .info-label {
+        font-size: 0.85rem;
+        color: #7f8c8d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .info-value {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+    
+    .provider-name {
+        color: #3498db;
+    }
+    
+    .appointment-time {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #3498db;
+    }
+    
+    .appointment-actions {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .action-btn {
+        flex: 1;
+        padding: 0.5rem;
+        border: 1px solid #3498db;
+        background: white;
+        color: #3498db;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+    }
+    
+    .action-btn:hover {
+        background: #3498db;
+        color: white;
+    }
+    
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin: 0;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #7f8c8d;
+    }
+    
+    .empty-state-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+    }
+    
+    .provider-section {
+        margin-bottom: 2rem;
+    }
+    
+    .provider-section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2c3e50;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="daily-container">
+    <!-- Header -->
+    <div class="header-section">
+        <div>
+            <h1>Daily Schedule</h1>
+            <p class="text-muted">Manage appointments for your clinic</p>
+        </div>
+        <div class="date-navigation">
+            <a href="{% url 'appointments:daily-appointments' %}" class="nav-btn" title="Today">
+                <i class="fas fa-calendar-day"></i> Today
+            </a>
+            <div class="date-box">{{ appointment_date|date:"l, M d, Y" }}</div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="alert-container mb-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Filter by Provider -->
+    <div class="provider-filter">
+        <form method="get" class="d-flex align-items-center gap-2">
+            <label class="filter-label">Filter by Provider:</label>
+            <select name="provider" class="provider-select" onchange="this.form.submit()">
+                <option value="">All Providers</option>
+                {% for provider in providers %}
+                    <option value="{{ provider.id }}" {% if selected_provider|slugify == provider.id|slugify %}selected{% endif %}>
+                        Dr. {{ provider.get_full_name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <p class="stat-number">{{ appointments|length }}</p>
+            <p class="stat-label">Total Appointments</p>
+        </div>
+        <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <p class="stat-number">{{ appointments|dictsort:"status"|length }}</p>
+            <p class="stat-label">Pending</p>
+        </div>
+        <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <p class="stat-number">{{ appointments|length }}</p>
+            <p class="stat-label">Confirmed</p>
+        </div>
+    </div>
+
+    <!-- Appointments by Provider -->
+    {% if grouped_appointments %}
+        {% for provider, provider_appointments in grouped_appointments.items %}
+            {% if provider_appointments %}
+                <div class="provider-section">
+                    <div class="provider-section-title">
+                        <i class="fas fa-user-md"></i> Dr. {{ provider.get_full_name }}
+                        <span class="text-muted" style="font-size: 0.9rem; font-weight: normal;">
+                            ({{ provider_appointments|length }} appointment{{ provider_appointments|length|pluralize }})
+                        </span>
+                    </div>
+
+                    <div class="appointments-grid">
+                        {% for appointment in provider_appointments %}
+                            <div class="appointment-card">
+                                <div class="appointment-header">
+                                    <div>
+                                        <p class="patient-name">{{ appointment.get_patient_display_name }}</p>
+                                        <p class="appointment-time">
+                                            {{ appointment.start_time|time:"h:i A" }} - {{ appointment.end_time|time:"h:i A" }}
+                                        </p>
+                                    </div>
+                                    <span class="status-badge status-{{ appointment.status }}">
+                                        {{ appointment.get_status_display }}
+                                    </span>
+                                </div>
+
+                                <div class="appointment-info">
+                                    <p class="info-label">Provider</p>
+                                    <p class="info-value provider-name">Dr. {{ provider.get_full_name }}</p>
+                                </div>
+
+                                <div class="appointment-info">
+                                    <p class="info-label">Contact</p>
+                                    <p class="info-value">
+                                        📧 {{ appointment.get_patient_email }}<br>
+                                        📱 {{ appointment.get_patient_phone }}
+                                    </p>
+                                </div>
+
+                                <div class="appointment-info">
+                                    <p class="info-label">Reason for Visit</p>
+                                    <p class="info-value">{{ appointment.reason|truncatewords:15 }}</p>
+                                </div>
+
+                                {% if appointment.notes %}
+                                    <div class="appointment-info">
+                                        <p class="info-label">Notes</p>
+                                        <p class="info-value">{{ appointment.notes }}</p>
+                                    </div>
+                                {% endif %}
+
+                                <div class="appointment-actions">
+                                    <a href="{% url 'appointments:appointment-detail' appointment.pk %}" class="action-btn">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                    <a href="{% url 'appointments:cancel-appointment' appointment.pk %}" class="action-btn" 
+                                       onclick="return confirm('Are you sure?');">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon">
+                <i class="fas fa-calendar-times"></i>
+            </div>
+            <h3>No Appointments</h3>
+            <p>There are no appointments scheduled for this date.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

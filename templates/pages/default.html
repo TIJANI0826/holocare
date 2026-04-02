@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.meta_title|default:page.title }} - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}{{ page.meta_description }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <article>
+        <h1>{{ page.title }}</h1>
+        {% if page.featured_image %}
+            <img src="{{ page.featured_image.url }}" alt="{{ page.title }}" class="img-fluid my-4 rounded">
+        {% endif %}
+        <div class="content">
+            {{ page.content|safe }}
+        </div>
+        <p class="text-muted">Last updated: {{ page.updated_at|date:"F d, Y" }}</p>
+    </article>
+</div>
+{% endblock %}
