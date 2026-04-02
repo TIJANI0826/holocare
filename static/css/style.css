@@ -1,0 +1,328 @@
+/* Habib Medical Hospital - Custom Styles */
+
+:root {
+    --primary-color: #0b5c75 ;
+    --primary-dark: #dd2727;
+    --secondary-light : #457b9d;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dd2727;
+    --warning-color: #ffc107;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+/* General Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #0b5c75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+/* Accessibility - Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--dark-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+}
+
+.navbar a {
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: white !important;
+    background-color: #ffc107;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #cc7f00 100%);
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.25rem;
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-color: #ff9f00;
+    border-color: #ff9f00;
+    color: white;
+}
+
+.btn-primary,
+.btn-danger {
+    background-color: #ff9f00;
+    border-color: #ff9f00;
+    color: white;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.btn:hover {
+    background-color: #cc7f00;
+    border-color: #cc7f00;
+    color: white;
+    transform: translateY(-2px);
+}
+.form-control,
+.form-select {
+    border-radius: 0.5rem;
+    border-color: #ddd;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 159, 0, 0.25);
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #ddd;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+}
+
+footer a {
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white !important;
+    background-color: var(--primary-color);
+}
+
+/* Header + Footer Logo Scaling */
+.navbar-brand img {
+    height: 70px !important;
+    width: auto !important;
+}
+
+.footer-brand img {
+    height: 60px !important;
+    width: auto !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-brand img {
+        height: 90px !important;
+    }
+    .footer-brand img {
+        height: 80px !important;
+    }
+}
+
+/* Main Content */
+main {
+    min-height: 60vh;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img.rounded {
+    border-radius: 0.5rem;
+}
+
+/* Responsive Tables */
+.table {
+    font-size: 0.95rem;
+}
+
+.table th {
+    background-color: var(--light-color);
+    font-weight: 700;
+    color: var(--dark-color);
+    border: none;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    background-color: var(--light-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Utility Classes */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.section-divider {
+    border-top: 2px solid var(--primary-color);
+    margin: 2rem 0;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Focus Styles for Keyboard Navigation */
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: more) {
+    body {
+        color: #000;
+    }
+
+    .navbar {
+        border: 1px solid #000;
+    }
+
+    .card {
+        border: 1px solid #000;
+    }
+}

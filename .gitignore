@@ -27,9 +27,9 @@ db.sqlite3
 db.sqlite3-journal
 
 # Media and static collected files
-/media
+#/media
 /staticfiles
-/static
+#static
 
 # Environment variables
 .env
