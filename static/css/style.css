@@ -160,7 +160,7 @@ footer a {
 }
 
 footer a:hover {
-    color: white !important;
+    color: var(--danger-color) !important;
     background-color: var(--primary-color);
 }
 
@@ -325,5 +325,164 @@ li {
 
     .card {
         border: 1px solid #000;
+    }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 576px) {
+    /* Hero section buttons - full width and centered on mobile */
+    .carousel-slide-content .d-flex.flex-column.flex-md-row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .carousel-slide-content .d-flex.flex-column.flex-md-row > a {
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+
+    /* Stats section - centered on mobile */
+    .row.g-4.w-100 .col-12 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hero therapy cards - single row on mobile */
+    .carousel-slide-content .row.g-3 {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .carousel-slide-content .row.g-3 .col-12 {
+        flex: 0 0 calc(33.333333% - 0.5rem);
+        min-width: calc(33.333333% - 0.5rem);
+    }
+}
+
+/* Footer - Improved spacing and alignment */
+footer .row {
+    row-gap: 1.5rem;
+}
+
+footer .col-lg-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    footer .row {
+        column-gap: 2rem;
+    }
+
+    footer .col-lg-4 {
+        padding: 0 1rem;
+    }
+
+    footer .col-lg-4:first-child {
+        padding-left: 0;
+    }
+
+    footer .col-lg-4:last-child {
+        padding-right: 0;
+    }
+}
+
+/* Button styling for hero section */
+.carousel-slide-content .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide-content .btn-lg {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer links hover effect */
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 0.5rem;
+    background-color: transparent !important;
+}
+
+/* Consultation section buttons - centered on mobile */
+@media (max-width: 576px) {
+    .d-flex.flex-column.gap-3.justify-content-center > a {
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+}
+
+/* Hero Section Styling - Proper alignment and spacing */
+[class$="-hero"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+[class$="-hero"] .container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 1rem;
+}
+
+[class$="-hero"] h1,
+[class$="-hero"] h2 {
+    line-height: 1.2;
+    color: white;
+    text-shadow: -3px -1px 4px #ffc107;
+}
+
+[class$="-hero"] p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Mobile Hero Sections */
+@media (max-width: 768px) {
+    [class$="-hero"] {
+        min-height: 250px !important;
+    }
+
+    [class$="-hero"] h1,
+    [class$="-hero"] h2 {
+        font-size: 2rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    [class$="-hero"] .lead {
+        font-size: 0.95rem !important;
+    }
+
+    [class$="-hero"] p {
+        margin-top: 0.5rem !important;
+    }
+}
+
+/* Desktop Hero Sections */
+@media (min-width: 769px) {
+    [class$="-hero"] {
+        min-height: 300px !important;
+    }
+
+    [class$="-hero"] h1,
+    [class$="-hero"] h2 {
+        font-size: 3rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    [class$="-hero"] .lead {
+        font-size: 1.1rem !important;
     }
 }

@@ -3,9 +3,9 @@
 <footer class="bg-gradient-dark text-light mt-5 pt-5 border-top" role="contentinfo" style="background: linear-gradient(135deg, #1D3557 0%, #000000 100%);">
     <div class="container">
         <!-- Main Footer Content -->
-        <div class="row mb-5">
+        <div class="row mb-5 g-5">
             <!-- About Section -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <div class="footer-brand mb-3 d-flex align-items-center">
                     <img src="{% static 'images/contactLOGO-1.png' %}" alt="Contact Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 12px;">
                     
@@ -42,7 +42,7 @@
             
             <!-- Quick Links Section -->
             <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Quick Links</h6>
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--danger-color);">Quick Links</h6>
                 <ul class="list-unstyled footer-links">
                     <li><a href="{% url 'pages_frontend:home' %}">Home</a></li>
                     <li><a href="{% url 'pages_frontend:page-detail' slug='about' %}">About Us</a></li>
@@ -54,12 +54,11 @@
                     <li><a href="#">Terms and Conditions</a></li>
                 </ul>
             </div>
-            
-            <!-- Contact Section -->
-            <div class="col-lg-3 col-md-6">
-                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Contact & Opening Hours</h6>
+             <!-- Contact Section -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--danger-color);">Contact & Opening Hours</h6>
                 <p class="mb-2" style="font-size: 14px;">
-                    Monday-Sunday (8am – 5pm)
+                    Monday-Sunday (8am – 6pm)
                 </p>
                 <p class="mb-2" style="font-size: 14px;">
                     +234 805 544 4565
@@ -69,7 +68,7 @@
                     <a href="mailto:holcarewellness@gmail.com" class="text-light text-decoration-none">holcarewellness@gmail.com</a>
                 </p>
                 <p style="font-size: 14px;">
-                    Address: 1B Rudolf Street, Maitama, FCT, Abuja, Nigeria
+                    Address: 1B ofiki St, Maitama, Abuja 904101, Federal Capital Territory, Abuja, Nigeria.
                 </p>
                 <a href="http://wa.me/c/2348055444565" target="_blank" class="btn btn-success mt-3">
                     <i class="fab fa-whatsapp me-2"></i>Contact Us via WhatsApp
@@ -117,7 +116,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: var(--danger-color);
     margin-left: 5px;
 }
 
@@ -143,6 +142,6 @@ footer {
 }
 
 .social-links a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--danger-color);
     color: #FFFFFF !important;
 </style>

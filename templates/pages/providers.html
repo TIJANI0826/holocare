@@ -6,224 +6,193 @@
 
 {% block content %}
 <!-- Hero Section -->
-<div class="providers-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/ourteambackground.jpeg' %}'); background-size: cover; background-position: center; position: relative;">
+<div class="providers-hero text-white py-3" style="background-image: url('{% static 'images/breadcrumbs/ourteambackground.jpeg' %}'); background-size: cover; background-position: center; position: relative; min-height: 300px; display: flex; align-items: center;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
     <div class="container" style="position: relative; z-index: 2;">
-        <h1 class="display-4 fw-bold">Our Healthcare Providers</h1>
-        <p class="lead mb-0">Meet our team of experienced and compassionate healthcare professionals</p>
+        <h1 class="display-4 fw-bold mb-2" style="text-shadow: -3px -1px 4px #ffc107;">Our Healthcare Providers</h1>
+        <p class="lead mb-0" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Meet our team of experienced and compassionate healthcare professionals</p>
     </div>
 </div>
 
-<div class="container my-5">
-    <!-- Search Section -->
-    <section class="mb-5">
-        <div class="row align-items-center mb-4">
-            <div class="col-lg-6">
-                <h2 class="fw-bold mb-2">Find Your Provider</h2>
-                <p class="text-muted">Browse our directory of skilled physicians and specialists</p>
+<!-- Meet Our Team Section -->
+<div class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <div class="container">
+        <section>
+            <div class="text-center mb-5">
+                <h2 class="mb-3 fw-bold" style="color: var(--primary-color);">Meet Our Team</h2>
+                <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">
+                    Our world-class team of functional medicine specialists, diagnostic consultants, and therapy experts work together to identify and treat the root cause of your chronic health conditions through advanced laboratory services, HBOT therapy, and innovative therapies like Red Light and PEMF.
+                </p>
             </div>
-            <div class="col-lg-6">
-                <form method="GET" action="." class="provider-filter">
-                    <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Search by name or specialty" aria-label="Search providers" style="border-color: var(--primary-color);">
-                        <button class="btn btn-danger" type="submit" style="background-color: var(--primary-color);">
-                            <i class="fas fa-search me-1"></i>Search
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
-    <!-- Provider Cards Grid -->
-    <section class="mb-5">
-        <div class="row g-4">
-            <!-- Provider Card 1: Dr. Nighat Khan -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
-                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
-                        <img src="{% static 'images/doctors/nighat-khan.jpg' %}" alt="Dr. Nighat Khan" class="w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Dr. Jane Doe</h5>
-                        <p class="card-text text-danger fw-600 mb-2">
-                            <i class="fas fa-female me-2"></i>OB/GYN Specialist
-                        </p>
-                        <p class="card-text small text-muted mb-3">Highly respected Obstetrician and Gynecologist bringing over 20 years of clinical experience in women's health and reproductive medicine</p>
-                        <div class="mb-3">
-                            <small class="badge bg-light text-danger border border-danger">English</small>
-                            <small class="badge bg-light text-danger border border-danger">Urdu</small>
+            <div class="row g-4">
+                <!-- Dr. Jane Doe -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/jane-doe.jpg" alt="Dr. Jane Doe" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
                         </div>
-                        <p class="small mb-3">
-                            <i class="fas fa-briefcase text-danger me-1"></i>
-                            <strong>Experience:</strong> 20+ years
-                        </p>
-                    </div>
-                    <div class="card-footer bg-light border-0">
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
-                            <i class="fas fa-eye me-1"></i>View Profile
-                        </a>
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
-                            <i class="fas fa-calendar me-1"></i>Book
-                        </a>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Jane Doe</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-female me-2"></i>OB/GYN Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Jane Doe is a highly respected Obstetrician and Gynecologist at Holcare Health & Wellness Clinic Abuja, bringing over 20 years of clinical experience in women's health and reproductive medicine.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>20+ years</strong>
+                                </div>
+                                <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill">
+                                    <i class="fas fa-female me-1"></i>OB/GYN
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Provider Card 2: Dr. Zahra Radmard -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
-                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
-                        <img src="{% static 'images/doctors/zahra-radmard.jpg' %}" alt="Dr. Zahra Radmard" class="w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Dr. John Doe</h5>
-                        <p class="card-text text-danger fw-600 mb-2">
-                            <i class="fas fa-stethoscope me-2"></i>Internal Medicine Specialist
-                        </p>
-                        <p class="card-text small text-muted mb-3">Dedicated to improving healthcare in West Africa with over 6 years of professional experience providing high-quality medical care in Nigeria</p>
-                        <div class="mb-3">
-                            <small class="badge bg-light text-danger border border-danger">English</small>
-                            <small class="badge bg-light text-danger border border-danger">Persian</small>
+                <!-- Dr. John Smith -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/john-smith.jpg" alt="Dr. John Smith" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
                         </div>
-                        <p class="small mb-3">
-                            <i class="fas fa-briefcase text-danger me-1"></i>
-                            <strong>Experience:</strong> 6+ years
-                        </p>
-                    </div>
-                    <div class="card-footer bg-light border-0">
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
-                            <i class="fas fa-eye me-1"></i>View Profile
-                        </a>
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
-                            <i class="fas fa-calendar me-1"></i>Book
-                        </a>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. John Smith</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-stethoscope me-2"></i>Internal Medicine Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. John Smith is an Internal Medicine Specialist dedicated to improving healthcare in West Africa. With over 6 years of professional experience, he is committed to providing high-quality medical care in Nigeria.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>6+ years</strong>
+                                </div>
+                                <span class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill">
+                                    <i class="fas fa-stethoscope me-1"></i>Internal Med
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Provider Card 3: Dr. Farouq A.M. Abusamra -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
-                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
-                        <img src="{% static 'images/doctors/farouq-abusamra.jpg' %}" alt="Dr. Farouq A.M. Abusamra" class="w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Dr. Emma Brown</h5>
-                        <p class="card-text text-danger fw-600 mb-2">
-                            <i class="fas fa-bone me-2"></i>Orthopedic Surgeon
-                        </p>
-                        <p class="card-text small text-muted mb-3">Expert orthopedic consultant with 20+ years of experience in trauma care, joint surgery, and advanced musculoskeletal treatment</p>
-                        <div class="mb-3">
-                            <small class="badge bg-light text-danger border border-danger">English</small>
-                            <small class="badge bg-light text-danger border border-danger">Arabic</small>
+                <!-- Dr. Emily Johnson -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/emily-johnson.jpg" alt="Dr. Emily Johnson" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
                         </div>
-                        <p class="small mb-3">
-                            <i class="fas fa-briefcase text-danger me-1"></i>
-                            <strong>Experience:</strong> 20+ years
-                        </p>
-                    </div>
-                    <div class="card-footer bg-light border-0">
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
-                            <i class="fas fa-eye me-1"></i>View Profile
-                        </a>
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
-                            <i class="fas fa-calendar me-1"></i>Book
-                        </a>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Emily Johnson</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-bone me-2"></i>Orthopedic Surgeon
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Expert orthopedic consultant with 20+ years of experience in trauma care, joint surgery, and advanced musculoskeletal treatment.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>20+ years</strong>
+                                </div>
+                                <span class="badge bg-warning-subtle text-warning px-2 py-1 rounded-pill">
+                                    <i class="fas fa-bone me-1"></i>Orthopedic
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Provider Card 4: Dr. Leila Moradi -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
-                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
-                        <img src="{% static 'images/doctors/leila-moradi.jpg' %}" alt="Dr. Leila Moradi" class="w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Dr. Alex Smith</h5>
-                        <p class="card-text text-danger fw-600 mb-2">
-                            <i class="fas fa-child me-2"></i>Pediatrics & Allergy Specialist
-                        </p>
-                        <p class="card-text small text-muted mb-3">Compassionate Pediatrician and Allergy & Clinical Immunology Subspecialist with 15 years of experience providing exceptional care for children</p>
-                        <div class="mb-3">
-                            <small class="badge bg-light text-danger border border-danger">English</small>
-                            <small class="badge bg-light text-danger border border-danger">Persian</small>
+                <!-- Dr. Michael Brown -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/michael-brown.jpg" alt="Dr. Michael Brown" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
                         </div>
-                        <p class="small mb-3">
-                            <i class="fas fa-briefcase text-danger me-1"></i>
-                            <strong>Experience:</strong> 15+ years
-                        </p>
-                    </div>
-                    <div class="card-footer bg-light border-0">
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
-                            <i class="fas fa-eye me-1"></i>View Profile
-                        </a>
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
-                            <i class="fas fa-calendar me-1"></i>Book
-                        </a>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Michael Brown</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-child me-2"></i>Pediatrics & Allergy Specialist
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Michael Brown is a compassionate Pediatrician and Allergy & Clinical Immunology Subspecialist with 15 years of experience, dedicated to providing exceptional care for children.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>15+ years</strong>
+                                </div>
+                                <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill">
+                                    <i class="fas fa-child me-1"></i>Pediatrics
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Provider Card 5: Dr. Asad M. Saadat -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 provider-card border-0 shadow-lg" style="transition: all 0.3s ease;">
-                    <div class="provider-image-wrapper bg-light position-relative overflow-hidden" style="height: 250px;">
-                        <img src="{% static 'images/doctors/asad-saadat.jpg' %}" alt="Dr. Asad M. Saadat" class="w-100 h-100" style="object-fit: cover;">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Dr. Taylor Lee</h5>
-                        <p class="card-text text-danger fw-600 mb-2">
-                            <i class="fas fa-heart me-2"></i>Cardiologist Consultant
-                        </p>
-                        <p class="card-text small text-muted mb-3">Highly experienced Cardiology Consultant with 18+ years of expertise in diagnosing and treating complex heart conditions</p>
-                        <div class="mb-3">
-                            <small class="badge bg-light text-danger border border-danger">English</small>
-                            <small class="badge bg-light text-danger border border-danger">Arabic</small>
+                <!-- Dr. Sarah Wilson -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/sarah-wilson.jpg" alt="Dr. Sarah Wilson" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
                         </div>
-                        <p class="small mb-3">
-                            <i class="fas fa-briefcase text-danger me-1"></i>
-                            <strong>Experience:</strong> 18+ years
-                        </p>
-                    </div>
-                    <div class="card-footer bg-light border-0">
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#providerModal">
-                            <i class="fas fa-eye me-1"></i>View Profile
-                        </a>
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-sm btn-outline-danger">
-                            <i class="fas fa-calendar me-1"></i>Book
-                        </a>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Sarah Wilson</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-heart me-2"></i>Cardiologist Consultant
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Sarah Wilson is a highly experienced Cardiology Consultant at Holcare Health & Wellness Clinic Abuja with over 18 years of expertise in diagnosing and treating complex heart conditions.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>18+ years</strong>
+                                </div>
+                                <span class="badge bg-danger-subtle text-danger px-2 py-1 rounded-pill">
+                                    <i class="fas fa-heart me-1"></i>Cardiology
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Call to Action -->
-    <section class="my-5 py-5 text-center rounded" style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);">
-        <h3 class="fw-bold mb-3">Can't Find Your Provider?</h3>
-        <p class="mb-4 text-muted lead">Call us at <strong>+234 805 544 4565</strong> or email <strong>info@holcare.com</strong></p>
-        <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg fw-bold">
-            <i class="fas fa-envelope me-2"></i>Contact Us
-        </a>
-    </section>
-</div>
-
-<!-- Provider Modal -->
-<div class="modal fade" id="providerModal" tabindex="-1" aria-labelledby="providerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content border-0 shadow-lg">
-            <div class="modal-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border-bottom: none;">
-                <h5 class="modal-title fw-bold" id="providerModalLabel">
-                    <i class="fas fa-user-md me-2"></i>Provider Profile
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Dr. Etse Kelsy - Founder -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg hover-lift" style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 2px solid var(--primary-color);">
+                        <div style="height: 280px; overflow: hidden; position: relative;">
+                            <img src="/static/images/doctors/etse-kelsy.jpg" alt="Dr. Etse Kelsy" class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
+                            <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(11, 92, 117, 0.15) 0%, rgba(11, 92, 117, 0.1) 100%); opacity: 0; transition: opacity 0.4s ease;"></div>
+                            <div style="position: absolute; top: 10px; right: 10px; background: var(--primary-color); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">
+                                <i class="fas fa-star me-1"></i>Founder
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">Dr. Etse Kelsy</h5>
+                            <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
+                                <i class="fas fa-leaf me-2"></i>Functional Medicine Specialist & Founder
+                            </p>
+                            <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
+                                Dr. Etse Kelsy is the visionary founder and lead physician at Holcare. A renowned functional medicine specialist with 16+ years of experience, pioneering integrative healthcare solutions in Nigeria.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-muted small">
+                                    <strong>16+ years</strong>
+                                </div>
+                                <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill">
+                                    <i class="fas fa-leaf me-1"></i>Founder
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            <div class="modal-body">
-                <p>Provider details will load here</p>
-            </div>
-        </div>
+        </section>
     </div>
 </div>
 
