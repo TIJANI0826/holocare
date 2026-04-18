@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Media - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Latest media and news updates from Holcare Health & Wellness Clinic{% endblock %}
+
+{% block content %}
+<div class="media-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/aboutusbackground.jpg' %}'); background-size: cover; background-position: center; position: relative; min-height: 400px;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <h1 class="display-4 fw-bold">Media</h1>
+        <p class="lead mb-0">Up-to-date news and announcements about Holcare activities, seminars, and health stories.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row gy-4">
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Upcoming Seminar</h5>
+                    <p class="card-text text-muted">Stay tuned for details about our next community seminar on functional medicine and chronic disease recovery.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Health News</h5>
+                    <p class="card-text text-muted">Get the latest health insights and clinical updates from the Holcare team.</p>
+                    <a href="#" class="btn btn-primary">Read News</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Clinic Announcements</h5>
+                    <p class="card-text text-muted">Find announcements about Holcare events, new services, and patient care improvements.</p>
+                    <a href="#" class="btn btn-primary">See Updates</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FAQ - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Frequently asked questions about Holcare's therapies and services{% endblock %}
+
+{% block content %}
+<div class="faq-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/IMG_0041.HEIC' %}'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <h1 class="display-4 fw-bold">Frequently Asked Questions</h1>
+        <p class="lead mb-0">Answers to common questions about Holcare's therapies, consultations, and laboratory services.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            What is red light therapy and how does it work?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Red light therapy uses low-level wavelengths of red and near-infrared light to support cellular energy production and help improve healing, reduce inflammation, and support skin health.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Is red light therapy safe?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            When performed by trained professionals, red light therapy is considered safe. Our team follows clinical guidelines to ensure treatments are comfortable and effective.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What does HBOT mean?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            HBOT stands for Hyperbaric Oxygen Therapy. It delivers pure oxygen in a pressurized chamber to support healing, reduce inflammation, and improve oxygen delivery to tissues.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How many sessions are recommended for results?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Session recommendations vary by goal and condition. Our clinical team will recommend a plan during consultation, but many patients benefit from a course of multiple sessions for best results.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            What is PEMF?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            PEMF stands for Pulsed Electromagnetic Field therapy. It uses safe electromagnetic pulses to promote circulation, support cellular repair, and reduce pain and stiffness.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            How do I schedule a consultation?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            You can schedule a consultation using the appointment page, or contact us directly by phone or WhatsApp. Our team will help you choose the best service and time.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Can I have a virtual consultation?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Yes. Virtual consultations are available depending on your needs. Reach out to our team and we will confirm availability and next steps.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            Is there an in-house laboratory?
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Yes. Holcare has an in-house laboratory for diagnostic investigations and specialized testing to support personalized treatment plans.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

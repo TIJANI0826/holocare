@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Gallery - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Gallery of Holcare photos and videos showcasing our services and facilities{% endblock %}
+
+{% block content %}
+<div class="gallery-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/gallerybackground.jpg' %}'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <h1 class="display-4 fw-bold">Gallery</h1>
+        <p class="lead mb-0">Explore photos and videos from Holcare's clinic, events, and patient care experiences.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <img src="{% static 'images/carousel/slide-2-healthcare-worker.jpg' %}" class="card-img-top" alt="Holcare Facility">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Photo Gallery</h5>
+                    <p class="card-text text-muted">Browse pictures of our clinic, therapy rooms, patient-friendly environment, and advanced medical equipment.</p>
+                    <a href="#" class="btn btn-primary">View Photos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <img src="{% static 'images/carousel/slide-3-hospital-room.jpg' %}" class="card-img-top" alt="Holcare Videos">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Video Gallery</h5>
+                    <p class="card-text text-muted">Watch Holcare demonstrations, therapy overviews, patient stories, and educational clips.</p>
+                    <a href="#" class="btn btn-primary">Watch Videos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

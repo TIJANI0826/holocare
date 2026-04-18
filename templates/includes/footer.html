@@ -22,17 +22,20 @@
                 </div>
                 <!-- Social Links -->
                 <div class="social-links mt-3">
-                    <a href="#" class="text-light me-3" target="_blank" aria-label="Facebook">
+                    <a href="https://www.facebook.com/holcarewellness" class="text-light me-3" target="_blank" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="text-light me-3" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
+                    <a href="https://x.com/holcarewellness" class="text-light me-3" target="_blank" aria-label="X">
+                        <i class="fab fa-x"></i>
                     </a>
-                    <a href="#" class="text-light me-3" target="_blank" aria-label="Instagram">
+                    <a href="https://www.instagram.com/holcarewellness" class="text-light me-3" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-light" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
+                    <a href="https://www.youtube.com/@HolcareWellness" class="text-light me-3" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/holcarewellness" class="text-light" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
             </div>
@@ -44,15 +47,9 @@
                     <li><a href="{% url 'pages_frontend:home' %}">Home</a></li>
                     <li><a href="{% url 'pages_frontend:page-detail' slug='about' %}">About Us</a></li>
                     <li><a href="{% url 'pages_frontend:page-detail' slug='services' %}">Services</a></li>
-                    <li><a href="{% url 'pages_frontend:page-detail' slug='resources' %}">Research & Videos</a></li>
-                    <li><a href="{% url 'pages_frontend:page-detail' slug='appointments' %}">Become A Patient</a></li>
-                </ul>
-            </div>
-            
-            <!-- Useful Links Section -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px; font-size: 13px; color: var(--primary-color);">Useful Links</h6>
-                <ul class="list-unstyled footer-links">
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='resources' %}">Health Topics</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'pages_frontend:page-detail' slug='media' %}">Media</a></li>
                     <li><a href="/faq/">Frequently Asked Questions</a></li>
                     <li><a href="#">Terms and Conditions</a></li>
                 </ul>
@@ -66,6 +63,10 @@
                 </p>
                 <p class="mb-2" style="font-size: 14px;">
                     +234 805 544 4565
+                </p>
+                <p class="mb-2" style="font-size: 14px;">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a href="mailto:holcarewellness@gmail.com" class="text-light text-decoration-none">holcarewellness@gmail.com</a>
                 </p>
                 <p style="font-size: 14px;">
                     Address: 1B Rudolf Street, Maitama, FCT, Abuja, Nigeria

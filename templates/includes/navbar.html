@@ -2,16 +2,22 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" role="navigation" aria-label="Main navigation">
     <div class="container">
-        <!-- Logo Brand -->
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="{% url 'pages_frontend:home' %}">
-            <img src="{% static 'images/holcare.png' %}" alt="Holcare Health & Wellness Clinic Logo" style="height: 50px; width: auto; object-fit: contain;">
-        </a>
-        
-        <!-- Hamburger Menu -->
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="d-flex align-items-center justify-content-between w-100">
+            <div class="d-flex flex-column align-items-start">
+                <div class="d-flex align-items-center mb-1">
+                    <i class="fas fa-map-marker-alt me-2 text-muted"></i>
+                    <span class="small text-muted">1B Rudolf Street, Maitama, Abuja</span>
+                </div>
+                <a class="navbar-brand fw-bold d-flex align-items-center" href="{% url 'pages_frontend:home' %}">
+                    <img src="{% static 'images/holcare.png' %}" alt="Holcare Health & Wellness Clinic Logo" style="height: 45px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+            
+            <!-- Hamburger Menu -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         
         <!-- Navigation Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -26,7 +32,13 @@
                     <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='services' %}">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='providers' %}">Our Doctors</a>
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='providers' %}">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='gallery' %}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='media' %}">Media</a>
                 </li>
                 
                 <!-- Resources Dropdown -->
@@ -38,7 +50,7 @@
                             <i class="fas fa-newspaper me-2" style="color: var(--primary-color);"></i>Blog & Articles
                         </a></li>
                         <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='resources' %}">
-                            <i class="fas fa-book-medical me-2" style="color: var(--primary-color);"></i>Learning Center
+                            <i class="fas fa-book-medical me-2" style="color: var(--primary-color);"></i>Health Topics
                         </a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/faq/">
@@ -160,6 +172,20 @@
     
     .nav-link::after {
         display: none;
+    }
+    
+    .navbar .d-flex.flex-column {
+        align-items: center !important;
+    }
+    
+    .navbar .d-flex.align-items-center.mb-1 {
+        margin-bottom: 0.25rem !important;
+        font-size: 0.75rem !important;
+        text-align: center !important;
+    }
+    
+    .navbar .d-flex.align-items-center.mb-1 .small {
+        font-size: 0.7rem !important;
     }
 }
 </style>

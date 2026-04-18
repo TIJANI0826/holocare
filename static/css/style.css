@@ -1,13 +1,13 @@
 /* Habib Medical Hospital - Custom Styles */
 
 :root {
-    --primary-color: #0b5c75 ;
-    --primary-dark: #dd2727;
-    --secondary-light : #457b9d;
+    --primary-color: #0b5c75;
+    --primary-dark: #07414f;
+    --secondary-light: #89b5b1;
     --secondary-color: #6c757d;
     --success-color: #28a745;
-    --danger-color: #dd2727;
-    --warning-color: #ffc107;
+    --danger-color: #ffc107;
+    --warning-color: #f4c542;
     --light-color: #f8f9fa;
     --dark-color: #343a40;
 }
@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .navbar-brand {
@@ -64,9 +64,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #cc7f00 100%);
-    padding: 5rem 0;
-    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    padding: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .hero-section h1 {
@@ -102,22 +102,23 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    background-color: #ff9f00;
-    border-color: #ff9f00;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: white;
 }
 
 .btn-primary,
 .btn-danger {
-    background-color: #ff9f00;
-    border-color: #ff9f00;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: white;
 }
 
 .btn-primary:hover,
 .btn-danger:hover,
 .btn:hover {
-    background-color: #cc7f00;
+    background-color: var(--primary-dark);
+
     border-color: #cc7f00;
     color: white;
     transform: translateY(-2px);

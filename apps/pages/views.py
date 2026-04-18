@@ -37,6 +37,9 @@ def page_detail(request, slug):
             'appointments': 'pages/appointments.html',
             'blog': 'pages/blog.html',
             'resources': 'pages/resources.html',
+            'faq': 'pages/faq.html',
+            'gallery': 'pages/gallery.html',
+            'media': 'pages/media.html',
         }
         
         if slug not in static_pages:

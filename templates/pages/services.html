@@ -6,8 +6,9 @@
 
 {% block content %}
 <!-- Services Hero Section -->
-<div class="services-hero text-white py-5" style="background: linear-gradient(135deg, #dd2727 0%, #c21a1a 100%);">
-    <div class="container">
+<div class="services-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/servicesbacground.jpg' %}'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
         <h1 class="display-4 fw-bold">Advanced Functional Medicine Services</h1>
         <p class="lead mb-0">Cutting-edge therapies and comprehensive care to treat the root causes of health conditions</p>
     </div>

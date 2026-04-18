@@ -5,10 +5,11 @@
 {% block meta_description %}Educational materials and resources for patient health and wellness{% endblock %}
 
 {% block content %}
-<div class="resources-hero text-white py-5" style="background: linear-gradient(135deg, #dd2727 0%, #c21a1a 100%);">
-    <div class="container">
+<div class="resources-hero text-white py-5" style="background-image: url('{% static 'images/breadcrumbs/aboutusbackground.jpg' %}'); background-size: cover; background-position: center; position: relative; min-height: 400px;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
         <h1 class="display-4 fw-bold">Health Resources</h1>
-        <p class="lead mb-0">Download educational materials and helpful resources</p>
+        <p class="lead mb-0">Explore trusted health topics, guides, and support content from Holcare.</p>
     </div>
 </div>
 
@@ -231,26 +232,38 @@
             <div class="card mb-4 sticky-top" style="top: 20px;">
                 <div class="card-body">
                     <h5 class="card-title mb-3">
-                        <i class="fas fa-filter me-2"></i>Categories
+                        <i class="fas fa-filter me-2"></i>Health Topics
                     </h5>
                     <div class="list-group list-group-flush">
                         <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-book me-2"></i>All Resources
+                            <i class="fas fa-book me-2"></i>All Topics
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-file-pdf me-2"></i>Guides & Articles
-                            <span class="badge bg-primary float-end">24</span>
+                            <i class="fas fa-hand-holding-medical me-2"></i>Diabetes
+                            <span class="badge bg-primary float-end">20</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-clipboard-list me-2"></i>Checklists
-                            <span class="badge bg-primary float-end">8</span>
+                            <i class="fas fa-heart me-2"></i>Hypertension
+                            <span class="badge bg-primary float-end">18</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-head-side-medical me-2"></i>Stroke
+                            <span class="badge bg-primary float-end">12</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-notes-medical me-2"></i>Liver Disease
+                            <span class="badge bg-primary float-end">10</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <i class="fas fa-water me-2"></i>Kidney Disease
+                            <span class="badge bg-primary float-end">9</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                             <i class="fas fa-video me-2"></i>Videos
                             <span class="badge bg-primary float-end">12</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-form me-2"></i>Forms
+                            <i class="fas fa-file-alt me-2"></i>Forms
                             <span class="badge bg-primary float-end">6</span>
                         </a>
                     </div>
