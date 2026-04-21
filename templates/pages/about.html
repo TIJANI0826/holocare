@@ -195,74 +195,7 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="my-5 py-5 bg-light">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">Our Team</h2>
-            <p class="lead text-muted">Meet the dedicated professionals who make Holcare special</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- Team Member 1 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
-                    <div class="card-body text-center pt-4">
-                        <div class="mb-3">
-                            <img src="{% static 'images/team/physician.jpg' %}" alt="Physician" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-                        </div>
-                        <h5 class="card-title fw-bold mb-2">Physicians</h5>
-                        <p class="card-text text-muted small">Expert medical doctors providing comprehensive care</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
-                    <div class="card-body text-center pt-4">
-                        <div class="mb-3">
-                            <img src="{% static 'images/team/nutritionist.jpg' %}" alt="Nutritionist" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-                        </div>
-                        <h5 class="card-title fw-bold mb-2">Nutritionists</h5>
-                        <p class="card-text text-muted small">Specialized dietary guidance and nutritional planning</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
-                    <div class="card-body text-center pt-4">
-                        <div class="mb-3">
-                            <img src="{% static 'images/team/physiotherapist.jpg' %}" alt="Physiotherapist" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-                        </div>
-                        <h5 class="card-title fw-bold mb-2">Physiotherapists</h5>
-                        <p class="card-text text-muted small">Rehabilitation and physical therapy specialists</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Member 4 -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
-                    <div class="card-body text-center pt-4">
-                        <div class="mb-3">
-                            <img src="{% static 'images/team/health-coach.jpg' %}" alt="Health Coach" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
-                        </div>
-                        <h5 class="card-title fw-bold mb-2">Health Coaches</h5>
-                        <p class="card-text text-muted small">Personalized wellness guidance and lifestyle support</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-5 text-center">
-        <div class="container">
-            <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-primary btn-lg px-5 py-3" style="border-radius: 12px;">
-                <i class="fas fa-user-friends me-2"></i>Refer a Patient
-            </a>
-        </div>
-    </section>
+    
     <section class="my-5 py-5">
         <div class="row g-4">
             <!-- Value 1: Compassion -->
@@ -273,6 +206,32 @@
                             <i class="fas fa-heart"></i>
                         </div>
                         <p class="card-text text-muted small">We operate with honesty, transparency, and ethical standards in all aspects of our healthcare practice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 2: Innovation -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
+                    <div class="card-body text-center pt-4">
+                        <div style="font-size: 48px; color: var(--primary-color); margin-bottom: 15px;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Innovation</h5>
+                        <p class="card-text text-muted small">We embrace modern medical advances and evidence-based practices to deliver cutting-edge healthcare solutions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 3: Community -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-lg" style="transition: all 0.3s ease; border-radius: 12px;">
+                    <div class="card-body text-center pt-4">
+                        <div style="font-size: 48px; color: var(--primary-color); margin-bottom: 15px;">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Community</h5>
+                        <p class="card-text text-muted small">We are committed to fostering health awareness and supporting our communities through education and accessible healthcare.</p>
                     </div>
                 </div>
             </div>

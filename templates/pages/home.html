@@ -9,7 +9,7 @@
     <div class="carousel-inner" style="height: 600px;">
         <!-- Slide 1: Welcome - Red Theme -->
         <div class="carousel-item active carousel-item-bg-1" style="height: 100%; position: relative;">
-            <img src="{% static 'images/carousel/slide-1-stethoscope.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Welcome to Holcare Health & Wellness Clinic">
+            <img src="{% static 'images/carousel/slide-4-surgical-team.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Welcome to Holcare Health & Wellness Clinic">
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(11, 92, 117, 0.25) 0%, rgba(7, 65, 79, 0.25) 100%);"></div>
             <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
                 <div class="text-center text-white carousel-slide-content">
@@ -86,7 +86,7 @@
 
         <!-- Slide 4: Medication Recovery - Purple Theme -->
         <div class="carousel-item carousel-item-bg-4" style="height: 100%; position: relative;">
-            <img src="{% static 'images/carousel/slide-4-surgical-team.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Natural Healing and Recovery">
+            <img src="{% static 'images/carousel/slide-1-stethoscope.jpg' %}" class="d-block w-100" style="height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;" alt="Natural Healing and Recovery">
             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(102, 51, 153, 0.2) 0%, rgba(139, 69, 19, 0.2) 100%);"></div>
             <div class="d-flex align-items-center justify-content-center h-100" style="position: relative; z-index: 2;">
                 <div class="text-center text-white carousel-slide-content">
@@ -926,9 +926,7 @@
                     <h2 class="fw-bold mb-3" style="color: var(--primary-color); font-size: 2.2rem; line-height: 1.3;">Ready to Start Your Health Journey?</h2>
                     <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.6;">Click to book an appointment as a first timer for your consultation about your health and wellbeing. We will advise you on the best program for you.</p>
                     <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg w-100" style="border-radius: 12px; transition: all 0.3s ease; max-width: 280px;">
-                            <i class="fas fa-calendar-plus me-2"></i>Book Consultation
-                        </a>
+                        
                         <a href="https://wa.me/2348055444565?text=Hello%20Holcare%20Health%20%26%20Wellness%20Clinic.%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-success btn-lg px-4 py-3 fw-bold shadow-lg w-100" style="border-radius: 12px; transition: all 0.3s ease; max-width: 280px;">
                             <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
                         </a>
@@ -1013,9 +1011,6 @@
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
                     <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
                         <i class="fas fa-phone me-2"></i>Learn More About Our Approach
-                    </a>
-                    <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-outline-danger btn-lg px-4 py-3 fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
-                        <i class="fas fa-calendar me-2"></i>Book Free Consultation
                     </a>
                 </div>
             </div>
@@ -1381,17 +1376,19 @@
                 <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); border-radius: 20px; color: white;">
                     <div class="card-body p-4 text-center">
                         <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                            <i class="fas fa-crown text-white" style="font-size: 1.8rem;"></i>
+                            <i class="fas fa-star text-white" style="font-size: 1.8rem;"></i>
                         </div>
-                        <h4 class="fw-bold mb-3" style="font-size: 1.4rem; color: white;">Membership Plans</h4>
-                        <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Join our wellness community for ongoing support and exclusive benefits.</p>
-                        <div class="d-grid gap-3">
-                            <button class="btn btn-light btn-lg fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
-                                <i class="fas fa-info-circle me-2"></i>Learn About Membership
-                            </button>
-                            <button class="btn btn-outline-light btn-lg fw-bold" style="border-radius: 12px; transition: all 0.3s ease;">
-                                <i class="fas fa-plus me-2"></i>Join Now
-                            </button>
+                        <h4 class="fw-bold mb-3" style="font-size: 1.4rem; color: white;">Patient Stories</h4>
+                        <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Real results from our dedicated patients who have transformed their health through our functional medicine approach.</p>
+                        <div class="mb-3">
+                            <div style="display: flex; justify-content: center; gap: 4px;">
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                                <i class="fas fa-star" style="color: #ffc107;"></i>
+                            </div>
+                            <small style="color: rgba(255, 255, 255, 0.8); margin-top: 8px; display: block;">Highly Rated by Our Patients</small>
                         </div>
                     </div>
                 </div>
