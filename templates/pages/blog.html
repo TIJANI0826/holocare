@@ -1,225 +1,483 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Health Blog - Holcare Health & Wellness Clinic{% endblock %}
-{% block meta_description %}Read articles and health tips from our medical professionals{% endblock %}
+{% block title %}Health Resources - Holcare Health & Wellness Clinic{% endblock %}
+{% block meta_description %}Educational materials and resources for patient health and wellness{% endblock %}
 
 {% block content %}
-<div class="blog-hero text-white py-3" style="background-image: url('{% static 'images/breadcrumbs/IMG_0041.HEIC' %}'); background-size: cover; background-position: center; position: relative; min-height: 300px; display: flex; align-items: center;">
+<div class="resources-hero text-white py-3" style="background-image: url('{% static 'images/breadcrumbs/aboutusbackground.jpg' %}'); background-size: cover; background-position: center; position: relative; min-height: 300px; display: flex; align-items: center;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
     <div class="container" style="position: relative; z-index: 2;">
-        <h1 class="display-4 fw-bold mb-0" style="text-shadow: -3px -1px 4px #ffc107;">Health Blog</h1>
-        <p class="lead mb-0" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Articles and health tips from our medical professionals</p>
+        <h1 class="display-4 fw-bold mb-0" style="text-shadow: -3px -1px 4px #ffc107;">Health Resources</h1>
+        <p class="lead mb-0" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Explore trusted health topics, guides, and support content from Holcare.</p>
     </div>
 </div>
+
+<!-- Mobile Topic Selector (appears right after hero on mobile) -->
+<div class="container-fluid bg-light py-4" id="mobile-topic-selector" style="display: none;">
+    <div class="container">
+        <h5 class="mb-3 fw-bold">Select a Topic:</h5>
+        <div class="d-grid gap-2">
+            <a href="#diabetes" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-syringe me-2"></i>Diabetes Mellitus
+            </a>
+            <a href="#hypertension" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-heartbeat me-2"></i>Hypertension
+            </a>
+            <a href="#stroke" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-brain me-2"></i>Stroke
+            </a>
+            <a href="#liver" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-flask-vial me-2"></i>Liver Disease
+            </a>
+            <a href="#kidney" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-water me-2"></i>Kidney Disease
+            </a>
+            <a href="#statistics" class="btn btn-outline-primary text-start btn-sm" onclick="document.getElementById('mobile-topic-selector').style.display='none'">
+                <i class="fas fa-chart-bar me-2"></i>Nigeria Statistics
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    @media (max-width: 991px) {
+        #mobile-topic-selector {
+            display: block !important;
+        }
+        
+        .resources-sidebar {
+            display: none !important;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        #mobile-topic-selector {
+            display: none !important;
+        }
+        
+        .resources-sidebar {
+            display: block !important;
+        }
+    }
+</style>
 
 <div class="container my-5">
     <div class="row">
         <div class="col-lg-8">
             <section>
-                <h2 class="mb-4">Latest Articles</h2>
+                <h2 class="mb-4" style="color: var(--primary-color); font-size: 2.2rem;">Understanding Chronic Diseases</h2>
+                <p class="lead text-muted mb-5">Comprehensive guides on managing chronic health conditions. Learn about symptoms, risk factors, and evidence-based management strategies.</p>
 
-                <!-- Featured Article -->
-                <article class="card mb-4 blog-article featured-article border-0 shadow-lg">
+                <!-- DIABETES -->
+                <div class="card mb-5 border-0 shadow-lg" id="diabetes">
                     <div class="card-body p-5">
-                        <div class="mb-3">
-                            <span class="badge bg-success me-2">
-                                <i class="fas fa-star me-1"></i>Featured
-                            </span>
-                            <span class="badge bg-info">
-                                <i class="fas fa-heart me-1"></i>Wellness
-                            </span>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-syringe text-white" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <h3 class="mb-0" style="color: var(--primary-color);">Diabetes Mellitus</h3>
                         </div>
-                        <h3 class="card-title display-6 fw-bold">Understanding Heart Health: Tips for a Healthier Cardiovascular System</h3>
-                        <div class="text-muted mb-4 pb-3 border-bottom">
-                            <small>
-                                <i class="far fa-calendar me-2"></i><strong>March 15, 2024</strong>
-                                <span class="mx-2">•</span>
-                                <i class="far fa-user me-2"></i><strong>Dr. John Doe</strong>
-                                <span class="mx-2">•</span>
-                                <i class="far fa-clock me-2"></i>5 min read
-                            </small>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">What is Diabetes?</h5>
+                                <p>Diabetes is a chronic metabolic disorder characterized by elevated blood glucose levels resulting from insufficient insulin production or ineffective insulin utilization. In Nigeria, diabetes affects over 3.2 million people, with an estimated prevalence of 3.1% of the adult population.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Types of Diabetes</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><strong>Type 1:</strong> Autoimmune condition requiring insulin therapy</li>
+                                    <li class="mb-2"><strong>Type 2:</strong> Most common (90% of cases), often preventable through lifestyle</li>
+                                    <li><strong>Gestational:</strong> Occurs during pregnancy, increases lifelong risk</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="card-text lead">Learn about the importance of cardiovascular health and discover practical steps you can take today to improve your heart health and reduce risk factors...</p>
-                        <a href="#" class="btn btn-danger btn-lg fw-bold">
-                            <i class="fas fa-arrow-right me-2"></i>Read Article
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Blog Article List -->
-                <article class="card mb-4 blog-article border-0 shadow-lg">
-                    <div class="row g-0">
-                        <div class="col-md-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-child fa-4x text-white opacity-75"></i>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">Pediatric Care Tips: Keeping Your Children Healthy</h4>
-                                <div class="text-muted mb-3 small">
-                                    <i class="far fa-calendar me-2"></i><strong>March 10, 2024</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-user me-2"></i><strong>Dr. Sarah Smith</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-clock me-2"></i>4 min read
-                                </div>
-                                <p class="card-text">Essential tips and guidelines for maintaining your child's health, from proper nutrition to regular check-ups...</p>
-                                <a href="#" class="btn btn-danger btn-sm fw-bold">
-                                    <i class="fas fa-arrow-right me-1"></i>Read More
-                                </a>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Symptoms to Watch For</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Increased thirst and frequent urination</li>
+                                    <li class="mb-2">✓ Unexplained weight loss</li>
+                                    <li class="mb-2">✓ Persistent fatigue and weakness</li>
+                                    <li class="mb-2">✓ Blurred vision</li>
+                                    <li class="mb-2">✓ Slow-healing wounds or frequent infections</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Management Strategies</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Regular blood glucose monitoring</li>
+                                    <li class="mb-2">✓ Balanced diet with complex carbohydrates</li>
+                                    <li class="mb-2">✓ Regular physical exercise (150 mins/week)</li>
+                                    <li class="mb-2">✓ Medication adherence as prescribed</li>
+                                    <li class="mb-2">✓ Annual comprehensive health screening</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
 
-                <article class="card mb-4 blog-article border-0 shadow-lg">
-                    <div class="row g-0">
-                        <div class="col-md-4" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-capsules fa-4x text-white opacity-75"></i>
+                <!-- HYPERTENSION -->
+                <div class="card mb-5 border-0 shadow-lg" id="hypertension">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-heartbeat text-white" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <h3 class="mb-0" style="color: var(--primary-color);">Hypertension (High Blood Pressure)</h3>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">Medication Management: A Guide to Taking Your Medications Safely</h4>
-                                <div class="text-muted mb-3 small">
-                                    <i class="far fa-calendar me-2"></i><strong>March 5, 2024</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-user me-2"></i><strong>Dr. Michael Johnson</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-clock me-2"></i>5 min read
-                                </div>
-                                <p class="card-text">Learn about proper medication usage, potential interactions, and how to maintain a medication schedule...</p>
-                                <a href="#" class="btn btn-danger btn-sm fw-bold">
-                                    <i class="fas fa-arrow-right me-1"></i>Read More
-                                </a>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Understanding Hypertension</h5>
+                                <p>Hypertension is the persistent elevation of systemic arterial blood pressure above 140/90 mmHg. It is often termed "the silent killer" because many individuals remain asymptomatic until serious complications develop. Nigeria has one of the highest hypertension burdens in Africa, with approximately 30% of adults affected.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Risk Factors</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">• Family history of hypertension</li>
+                                    <li class="mb-2">• Age above 60 years</li>
+                                    <li class="mb-2">• Obesity and overweight</li>
+                                    <li class="mb-2">• Excessive sodium intake</li>
+                                    <li class="mb-2">• Stress and sedentary lifestyle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Possible Symptoms</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">→ Headaches (often at the back of head)</li>
+                                    <li class="mb-2">→ Dizziness or lightheadedness</li>
+                                    <li class="mb-2">→ Shortness of breath</li>
+                                    <li class="mb-2">→ Nosebleeds (in severe cases)</li>
+                                    <li class="mb-2">→ Chest discomfort</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Holcare Management Approach</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Regular blood pressure monitoring</li>
+                                    <li class="mb-2">✓ DASH diet (rich in potassium, magnesium)</li>
+                                    <li class="mb-2">✓ Reduced salt intake (&lt;5g/day)</li>
+                                    <li class="mb-2">✓ Stress management and relaxation techniques</li>
+                                    <li class="mb-2">✓ Prescribed medications with functional medicine</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
 
-                <article class="card mb-4 blog-article border-0 shadow-lg">
-                    <div class="row g-0">
-                        <div class="col-md-4" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-dumbbell fa-4x text-white opacity-75"></i>
+                <!-- STROKE -->
+                <div class="card mb-5 border-0 shadow-lg" id="stroke">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain text-white" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <h3 class="mb-0" style="color: var(--primary-color);">Stroke (Cerebrovascular Accident)</h3>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">The Importance of Exercise: Building a Fitness Routine That Works for You</h4>
-                                <div class="text-muted mb-3 small">
-                                    <i class="far fa-calendar me-2"></i><strong>February 28, 2024</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-user me-2"></i><strong>Dr. Sarah Smith</strong>
-                                    <span class="mx-2">•</span>
-                                    <i class="far fa-clock me-2"></i>6 min read
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">What Happens During a Stroke?</h5>
+                                <p>A stroke occurs when blood flow to part of the brain is suddenly interrupted, depriving brain cells of oxygen. This results in rapid death of brain tissue and potential permanent disability. In Nigeria, stroke is among the leading causes of morbidity and mortality, with an estimated incidence of 112 per 100,000 populations annually.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Types of Stroke</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><strong>Ischemic (80%):</strong> Blood clot blocks blood vessel</li>
+                                    <li class="mb-2"><strong>Hemorrhagic (20%):</strong> Blood vessel ruptures</li>
+                                    <li class="mb-2"><strong>TIA:</strong> Temporary blockage (warning sign)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <h5 class="fw-bold mb-3 text-danger">🚨 F.A.S.T. Warning Signs - Act Immediately</h5>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3 mb-3">
+                                        <div class="bg-light p-3 rounded">
+                                            <h6 class="fw-bold">Face</h6>
+                                            <small>Sudden facial drooping on one side</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 mb-3">
+                                        <div class="bg-light p-3 rounded">
+                                            <h6 class="fw-bold">Arm</h6>
+                                            <small>Weakness or numbness in one arm</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 mb-3">
+                                        <div class="bg-light p-3 rounded">
+                                            <h6 class="fw-bold">Speech</h6>
+                                            <small>Slurred or difficult speech</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 mb-3">
+                                        <div class="bg-light p-3 rounded">
+                                            <h6 class="fw-bold">Time</h6>
+                                            <small>Call emergency - every minute counts!</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="card-text">Discover how regular exercise can improve your health and find tips for starting a sustainable fitness routine...</p>
-                                <a href="#" class="btn btn-danger btn-sm fw-bold">
-                                    <i class="fas fa-arrow-right me-1"></i>Read More
-                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Prevention Strategies</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Control blood pressure</li>
+                                    <li class="mb-2">✓ Manage diabetes and cholesterol</li>
+                                    <li class="mb-2">✓ Avoid smoking and alcohol</li>
+                                    <li class="mb-2">✓ Regular physical activity</li>
+                                    <li class="mb-2">✓ Heart-healthy diet</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Post-Stroke Recovery</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Early rehabilitation therapy</li>
+                                    <li class="mb-2">✓ HBOT for tissue recovery</li>
+                                    <li class="mb-2">✓ Physical and speech therapy</li>
+                                    <li class="mb-2">✓ Medication management</li>
+                                    <li class="mb-2">✓ Psychological support services</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
+
+                <!-- LIVER DISEASE -->
+                <div class="card mb-5 border-0 shadow-lg" id="liver">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-flask-vial text-white" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <h3 class="mb-0" style="color: var(--primary-color);">Chronic Liver Disease</h3>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Overview</h5>
+                                <p>Chronic liver disease encompasses a range of disorders affecting liver function over prolonged periods. Common causes include hepatitis B and C, alcohol abuse, fatty liver disease, and autoimmune conditions. Nigeria faces significant burden from viral hepatitis, with approximately 8% hepatitis B and 2.1% hepatitis C seroprevalence rates.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Common Causes</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">• Viral hepatitis (B, C, A)</li>
+                                    <li class="mb-2">• Alcohol-related liver disease</li>
+                                    <li class="mb-2">• Non-alcoholic fatty liver disease</li>
+                                    <li class="mb-2">• Autoimmune hepatitis</li>
+                                    <li class="mb-2">• Cirrhosis (advanced stage)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Warning Signs</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">→ Jaundice (yellowing of skin/eyes)</li>
+                                    <li class="mb-2">→ Abdominal swelling or pain</li>
+                                    <li class="mb-2">→ Persistent fatigue</li>
+                                    <li class="mb-2">→ Dark urine or pale stools</li>
+                                    <li class="mb-2">→ Easy bruising or bleeding</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Management Approach</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Regular liver function testing</li>
+                                    <li class="mb-2">✓ Hepatitis screening and vaccination</li>
+                                    <li class="mb-2">✓ Alcohol cessation</li>
+                                    <li class="mb-2">✓ Nutritional optimization</li>
+                                    <li class="mb-2">✓ Antiviral therapy when indicated</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KIDNEY DISEASE -->
+                <div class="card mb-5 border-0 shadow-lg" id="kidney">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #6c757d 0%, #495057 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-water text-white" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <h3 class="mb-0" style="color: var(--primary-color);">Chronic Kidney Disease</h3>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Understanding CKD</h5>
+                                <p>Chronic Kidney Disease is characterized by progressive loss of kidney function over months or years. The kidneys filter waste products and excess water from the blood, which are then excreted as urine. When kidney function declines to less than 10% of normal, dialysis or transplantation becomes necessary. Nigeria has a high burden of CKD, with diabetes and hypertension being primary causes.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Primary Causes</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">• Diabetes (leading cause)</li>
+                                    <li class="mb-2">• Hypertension</li>
+                                    <li class="mb-2">• Chronic glomerulonephritis</li>
+                                    <li class="mb-2">• Recurrent kidney infections</li>
+                                    <li class="mb-2">• Obstructive diseases</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Early Symptoms</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">→ Changes in urination patterns</li>
+                                    <li class="mb-2">→ Swelling in legs, ankles, feet</li>
+                                    <li class="mb-2">→ Persistent back or side pain</li>
+                                    <li class="mb-2">→ Fatigue and weakness</li>
+                                    <li class="mb-2">→ Shortness of breath</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold mb-3">Holcare Treatment Plan</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2">✓ Regular renal function monitoring</li>
+                                    <li class="mb-2">✓ Blood pressure control</li>
+                                    <li class="mb-2">✓ Dietary modifications (sodium, protein)</li>
+                                    <li class="mb-2">✓ Medication management</li>
+                                    <li class="mb-2">✓ Functional nutrition support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATISTICS SECTION -->
+                <div class="card border-0 shadow-lg" id="statistics" style="background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);">
+                    <div class="card-body p-5">
+                        <h3 class="mb-5 text-center" style="color: var(--primary-color);">Chronic Diseases in Nigeria: Key Statistics</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm border-left pl-4" style="border-left: 4px solid #dc3545;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">30%</div>
+                                    <p class="mb-0"><strong>Hypertension Prevalence</strong><br><small class="text-muted">Approximately 30% of Nigerian adults suffer from hypertension</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm" style="border-left: 4px solid #17a2b8;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">3.2M</div>
+                                    <p class="mb-0"><strong>Diabetes Cases</strong><br><small class="text-muted">Over 3.2 million Nigerians diagnosed with diabetes mellitus</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm" style="border-left: 4px solid #ffc107;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">112/100K</div>
+                                    <p class="mb-0"><strong>Annual Stroke Incidence</strong><br><small class="text-muted">112 per 100,000 population annually in Nigeria</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm" style="border-left: 4px solid #28a745;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">8%</div>
+                                    <p class="mb-0"><strong>Hepatitis B Seroprevalence</strong><br><small class="text-muted">Approximately 8% of Nigerians test positive for Hepatitis B</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm" style="border-left: 4px solid #6c757d;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">13.8%</div>
+                                    <p class="mb-0"><strong>CKD Prevalence</strong><br><small class="text-muted">Approximately 13.8% of Nigerian adults have chronic kidney disease</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="bg-white p-4 rounded shadow-sm" style="border-left: 4px solid #20c997;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">40%</div>
+                                    <p class="mb-0"><strong>Preventable Deaths</strong><br><small class="text-muted">Approximately 40% of chronic disease deaths are preventable</small></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4" role="alert">
+                            <i class="fas fa-info-circle me-2"></i><strong>Prevention is Key:</strong> Early detection and management through regular health screenings, lifestyle modifications, and adherence to treatment can significantly improve outcomes and quality of life.
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Pagination -->
-                <nav aria-label="Blog pagination">
+                <nav class="mt-5" aria-label="Resource pagination">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#">Next</a>
                         </li>
                     </ul>
                 </nav>
             </section>
+
+            </section>
         </div>
 
-        <div class="col-lg-4">
-            <!-- Search Sidebar -->
-            <div class="card mb-4 border-0 shadow-lg">
-                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
-                    <i class="fas fa-search me-2"></i>Search Articles
-                </div>
-                <div class="card-body">
-                    <form class="blog-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search blog..." aria-label="Search articles" style="border-color: #ddd;">
-                            <button class="btn btn-danger" type="submit" aria-label="Search" style="background-color: var(--primary-color);">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
+        <div class="col-lg-4 resources-sidebar">
             <!-- Categories Sidebar -->
-            <div class="card mb-4 border-0 shadow-lg">
-                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
-                    <i class="fas fa-list me-2"></i>Categories
-                </div>
+            <div class="card mb-4 sticky-top" style="top: 20px;">
                 <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="mb-2 pb-2 border-bottom">
-                            <a href="#" class="text-decoration-none text-dark fw-500">
-                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
-                                Wellness <span class="badge bg-light text-dark float-end">12</span>
-                            </a>
-                        </li>
-                        <li class="mb-2 pb-2 border-bottom">
-                            <a href="#" class="text-decoration-none text-dark fw-500">
-                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
-                                Disease Management <span class="badge bg-light text-dark float-end">8</span>
-                            </a>
-                        </li>
-                        <li class="mb-2 pb-2 border-bottom">
-                            <a href="#" class="text-decoration-none text-dark fw-500">
-                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
-                                Preventive Care <span class="badge bg-light text-dark float-end">10</span>
-                            </a>
-                        </li>
-                        <li class="mb-2 pb-2 border-bottom">
-                            <a href="#" class="text-decoration-none text-dark fw-500">
-                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
-                                Nutrition <span class="badge bg-light text-dark float-end">7</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration-none text-dark fw-500">
-                                <i class="fas fa-tag me-2" style="color: var(--primary-color);"></i>
-                                Fitness <span class="badge bg-light text-dark float-end">9</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-filter me-2"></i>Disease Information
+                    </h5>
+                    <div class="list-group list-group-flush">
+                        <a href="#diabetes" class="list-group-item list-group-item-action">
+                            <i class="fas fa-syringe me-2"></i>Diabetes Mellitus
+                            <span class="badge bg-primary float-end">Info</span>
+                        </a>
+                        <a href="#hypertension" class="list-group-item list-group-item-action">
+                            <i class="fas fa-heartbeat me-2"></i>Hypertension
+                            <span class="badge bg-primary float-end">Info</span>
+                        </a>
+                        <a href="#stroke" class="list-group-item list-group-item-action">
+                            <i class="fas fa-brain me-2"></i>Stroke
+                            <span class="badge bg-primary float-end">Info</span>
+                        </a>
+                        <a href="#liver" class="list-group-item list-group-item-action">
+                            <i class="fas fa-flask-vial me-2"></i>Liver Disease
+                            <span class="badge bg-primary float-end">Info</span>
+                        </a>
+                        <a href="#kidney" class="list-group-item list-group-item-action">
+                            <i class="fas fa-water me-2"></i>Kidney Disease
+                            <span class="badge bg-primary float-end">Info</span>
+                        </a>
+                        <a href="#statistics" class="list-group-item list-group-item-action">
+                            <i class="fas fa-chart-bar me-2"></i>Nigeria Statistics
+                            <span class="badge bg-primary float-end">Stats</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Recent Posts Sidebar -->
-            <div class="card border-0 shadow-lg">
-                <div class="card-header fw-bold" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; border: none;">
-                    <i class="fas fa-clock me-2"></i>Recent Posts
-                </div>
+            <!-- Quick Tips -->
+            <div class="card">
                 <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>Prevention Tips
+                    </h5>
                     <ul class="list-unstyled">
                         <li class="mb-3 pb-3 border-bottom">
-                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Heart Health Tips</a></h6>
-                            <small class="text-muted">
-                                <i class="far fa-calendar me-1"></i>March 15, 2024
-                            </small>
+                            <h6 class="mb-1">Regular Screening</h6>
+                            <small class="text-muted">Annual health checkups can detect early-stage diseases</small>
                         </li>
                         <li class="mb-3 pb-3 border-bottom">
-                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Pediatric Care Guide</a></h6>
-                            <small class="text-muted">
-                                <i class="far fa-calendar me-1"></i>March 10, 2024
-                            </small>
+                            <h6 class="mb-1">Healthy Lifestyle</h6>
+                            <small class="text-muted">Regular exercise, balanced diet, and stress management</small>
                         </li>
                         <li>
-                            <h6 class="mb-1"><a href="#" class="text-decoration-none" style="color: var(--primary-dark); font-weight: 600;">Medication Safety</a></h6>
-                            <small class="text-muted">
-                                <i class="far fa-calendar me-1"></i>March 5, 2024
-                            </small>
+                            <h6 class="mb-1">Medication Adherence</h6>
+                            <small class="text-muted">Follow prescribed treatment plans consistently</small>
                         </li>
                     </ul>
                 </div>
