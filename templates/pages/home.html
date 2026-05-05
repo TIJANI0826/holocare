@@ -219,7 +219,6 @@
 
 @media (max-width: 768px) {
     .carousel {
-        min-height: 300px;
         position: relative;
     }
     
@@ -335,12 +334,11 @@
 
 @media (max-width: 768px) {
     .carousel {
-        min-height: 500px;
         position: relative;
     }
 
     .carousel-inner {
-        height: 500px !important;
+        height: 600px !important;
     }
 
     .carousel-slide-content h1,
@@ -1258,11 +1256,12 @@
                     </div>
                 </div>
                 <p class="lead text-muted mb-4" style="font-size: 1.1rem;">If this sounds familiar, you're not alone and there is a more personalized approach to your health.</p>
-                
+                 <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
+                    
                     <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
                         <i class="fas fa-phone me-2"></i>Learn More About Our Approach
                     </a>
-                
+                </div>  
             </div>
         </div>
     </div>
@@ -1499,14 +1498,6 @@
             </button>
         </div>
 
-        <!-- Image Lightbox Modal -->
-        <div id="imageLightbox" class="clinic-lightbox" style="display: none;">
-            <div class="clinic-lightbox-content">
-                <span class="clinic-lightbox-close">&times;</span>
-                <img id="lightboxImage" src="" alt="Full size image" class="clinic-lightbox-img">
-                <div id="lightboxCaption" class="clinic-lightbox-caption"></div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -1830,9 +1821,12 @@
                     </div>
                     <h3 class="fw-bold mb-3" style="color: white;">Trusted Healthcare Partner</h3>
                     <p class="lead mb-4">Your health is our priority. We're committed to providing world-class healthcare services with compassion and expertise.</p>
-                    <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
-                        <i class="fas fa-phone me-2"></i>Contact Us Today
-                    </a>
+                     <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
+                    
+                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
+                            <i class="fas fa-phone me-2"></i>Contact Us Today
+                        </a>
+                     </div> 
                 </div>
             </div>
         </div>
@@ -1852,9 +1846,10 @@
                     <div class="col-12 col-sm-8">
                         <label for="newsletterEmail" class="visually-hidden">Email address</label>
                         <input type="email" id="newsletterEmail" class="form-control form-control-lg" placeholder="Enter your email" aria-label="Email address" required>
+                        
                     </div>
-                    <div class="col-12 col-sm-8">
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe to Newsletter</button>
+                     <div class="col-12 col-sm-8">
+                        <button type="submit" class="btn btn-danger px-4 py-3 fw-bold">Subscribe to Newsletter</button>
                     </div>
                 </form>
             </div>
