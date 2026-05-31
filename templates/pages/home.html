@@ -818,6 +818,25 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Remove overlay specifically for the Patient Stories / Testimonials carousel */
+#testimonialCarousel .overlay,
+#testimonialCarousel .card .overlay {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* Remove dark caption background only in the Patient Stories carousel */
+#testimonialCarousel .carousel-caption {
+    background: none !important;
+    padding: 0 !important;
+}
+
+/* Ensure hover rules do not reveal overlays inside the testimonial carousel */
+#testimonialCarousel .hover-lift:hover .overlay {
+    opacity: 0 !important;
+    display: none !important;
+}
+
 /* Modern Button Styles */
 .btn {
     border-radius: 12px;
@@ -1173,7 +1192,7 @@
                     <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.6;">Click to book an appointment as a first timer for your consultation about your health and wellbeing. We will advise you on the best program for you.</p>
                     <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
                         <a href="https://forms.gle/xY2SzGkjFjrqYYJc6" target="_blank" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg w-100" style="border-radius: 12px; transition: all 0.3s ease; max-width: 280px;">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
+                            <i class="fas fa-calendar-check me-2"></i>Book Appointment
                         </a>
                         <a href="https://wa.me/2348055444565?text=Hello%20Holcare%20Health%20%26%20Wellness%20Clinic.%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-success btn-lg px-4 py-3 fw-bold shadow-lg w-100" style="border-radius: 12px; transition: all 0.3s ease; max-width: 280px;">
                             <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
@@ -1212,7 +1231,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center mb-5">
                 <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">Does This Sound Like You?</h2>
-                <p class="lead text-muted mb-4" style="font-size: 1.15rem; line-height: 1.6;">Take our quick assessment to see if functional medicine could help you</p>
+                <p class="lead text-muted mb-4" style="font-size: 1.15rem; line-height: 1.6;">You're not alone and there is a more personalized approach to your health.
+
+</p>
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 15px; transition: all 0.3s ease; cursor: pointer;">
@@ -1255,10 +1276,10 @@
                         </div>
                     </div>
                 </div>
-                <p class="lead text-muted mb-4" style="font-size: 1.1rem;">If this sounds familiar, you're not alone and there is a more personalized approach to your health.</p>
+                <!-- <p class="lead text-muted mb-4" style="font-size: 1.1rem;">If this sounds familiar, you're not alone and there is a more personalized approach to your health.</p> -->
                  <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
                     
-                    <a href="{% url 'pages_frontend:page-detail' slug='contact' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
+                    <a href="{% url 'pages_frontend:page-detail' slug='services' %}" class="btn btn-danger btn-lg px-4 py-3 fw-bold shadow-lg" style="border-radius: 12px; transition: all 0.3s ease;">
                         <i class="fas fa-phone me-2"></i>Learn More About Our Approach
                     </a>
                 </div>  
@@ -1335,13 +1356,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Who We Treat</h2>
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-color);">Conditions We  Treat and Manage</h2>
                     <p class="lead text-muted">We treat people with chronic health conditions using a comprehensive approach</p>
                 </div>
                 
                 <div class="row g-4 mb-5">
                     <div class="col-lg-8">
-                        <h4 class="fw-bold mb-3" style="color: var(--primary-color);">Medical Conditions We Address</h4>
+                        <!-- <h4 class="fw-bold mb-3" style="color: var(--primary-color);">Medical Conditions We Address</h4> -->
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm hover-lift" style="background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); border-radius: 12px; transition: all 0.3s ease;">
@@ -1506,7 +1527,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">What Our Patients Say</h2>
+                <h2 class="fw-bold mb-4" style="color: var(--primary-color); font-size: 2.5rem;">Patient Stories</h2>
                 <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
                     <div class="carousel-inner">
                         <!-- Testimonial 1 -->
@@ -1640,7 +1661,7 @@
                         <div class="icon-wrapper mb-4" style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                             <i class="fas fa-star text-white" style="font-size: 1.8rem;"></i>
                         </div>
-                        <h4 class="fw-bold mb-3" style="font-size: 1.4rem; color: white;">Patient Stories</h4>
+                        <!-- <h4 class="fw-bold mb-3" style="font-size: 1.4rem; color: white;">Patient Stories</h4> -->
                         <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Real results from our dedicated patients who have transformed their health through our functional medicine approach.</p>
                         <div class="mb-3">
                             <div style="display: flex; justify-content: center; gap: 4px;">
@@ -1665,7 +1686,7 @@
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
                 <span class="badge bg-danger-subtle text-danger fw-600 px-3 py-2 mb-3" style="font-size: 0.85rem; letter-spacing: 1px;">OUR STORY</span>
-                <h2 class="mb-3 fw-bold" style="color: var(--primary-color); font-size: 2.8rem;">About Holcare Health & Wellness Clinic</h2>
+                <h3 class="mb-3 fw-bold" style="color: var(--primary-color); font-size: 2.2rem;">About Holcare Health & Wellness Clinic</h3>
                 <p class="text-muted lead" style="font-size: 1.15rem; line-height: 1.8;">Committed to delivering world-class healthcare with compassion and excellence</p>
             </div>
         </div>
@@ -1823,7 +1844,7 @@
                     <p class="lead mb-4">Your health is our priority. We're committed to providing world-class healthcare services with compassion and expertise.</p>
                      <div class="d-flex flex-column gap-3 justify-content-center" style="align-items: center;">
                     
-                        <a href="{% url 'pages_frontend:page-detail' slug='appointments' %}" class="btn btn-danger btn-lg fw-bold">
+                        <a href="http://wa.me/c/2348055444565" target="_blank" class="btn btn-danger btn-lg fw-bold">
                             <i class="fas fa-phone me-2"></i>Contact Us Today
                         </a>
                      </div> 
@@ -1843,13 +1864,13 @@
             </div>
             <div class="col-lg-5">
                 <form class="row g-2 align-items-center">
-                    <div class="col-12 col-sm-8">
+                    <!-- <div class="col-12 col-sm-8">
                         <label for="newsletterEmail" class="visually-hidden">Email address</label>
                         <input type="email" id="newsletterEmail" class="form-control form-control-lg" placeholder="Enter your email" aria-label="Email address" required>
                         
-                    </div>
+                    </div> -->
                      <div class="col-12 col-sm-8">
-                        <button type="submit" class="btn btn-danger px-4 py-3 fw-bold">Subscribe to Newsletter</button>
+                        <a href="https://chat.whatsapp.com/GwM8LgYaQFG1f7FFpIWTzw?mode=gi_t" target="_blank" class="btn btn-danger px-4 py-3 fw-bold">Subscribe to Newsletter</a>
                     </div>
                 </form>
             </div>

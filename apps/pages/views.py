@@ -40,6 +40,7 @@ def page_detail(request, slug):
             'faq': 'pages/faq.html',
             'gallery': 'pages/gallery.html',
             'media': 'pages/media.html',
+            'caresens-air': 'pages/caresens-air.html',
         }
         
         if slug not in static_pages:
