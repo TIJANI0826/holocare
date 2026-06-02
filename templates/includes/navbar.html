@@ -1,27 +1,20 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" role="navigation" aria-label="Main navigation">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between w-100">
-            <div class="d-flex flex-column align-items-start">
-                <div class="d-flex align-items-center mb-1">
-                    <i class="fas fa-map-marker-alt me-2 text-muted"></i>
-                    <span class="small text-muted">1B Rudolf Street, Maitama, Abuja</span>
-                </div>
-                <a class="navbar-brand fw-bold d-flex align-items-center" href="{% url 'pages_frontend:home' %}">
-                    <img src="{% static 'images/holcare.png' %}" alt="Holcare Health & Wellness Clinic Logo" style="height: 45px; width: auto; object-fit: contain;">
-                </a>
-            </div>
-            
-            <!-- Hamburger Menu -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="container-fluid navbar-shell">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="{% url 'pages_frontend:home' %}">
+            <img src="{% static 'images/holcare.png' %}" alt="Holcare Health & Wellness Clinic Logo" style="height: 45px; width: auto; object-fit: contain;">
+        </a>
+
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         
         <!-- Navigation Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
+            <ul class="navbar-nav mx-lg-auto align-items-lg-center">
                 <li class="nav-item">
                     <a class="nav-link fw-500" href="{% url 'pages_frontend:home' %}">Home</a>
                 </li>
@@ -40,6 +33,9 @@
                 <li class="nav-item">
                     <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='media' %}">Updates</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='caresens-air' %}">CareSens Air</a>
+                </li>
                 
                 <!-- Resources Dropdown -->
                 <li class="nav-item dropdown">
@@ -49,9 +45,7 @@
                         <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='blog' %}">
                             <i class="fas fa-newspaper me-2" style="color: var(--primary-color);"></i>Blog & Articles
                         </a></li>
-                        <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='caresens-air' %}">
-                            <i class="fas fa-wind me-2" style="color: var(--primary-color);"></i>CareSens Air
-                        </a></li>
+                      
                         <!-- <li><a class="dropdown-item" href="{% url 'pages_frontend:page-detail' slug='resources' %}">
                             <i class="fas fa-book-medical me-2" style="color: var(--primary-color);"></i>Health Topics
                         </a></li> -->
@@ -65,14 +59,21 @@
                 <li class="nav-item">
                     <a class="nav-link fw-500" href="{% url 'pages_frontend:page-detail' slug='contact' %}">Contact</a>
                 </li>
-                
-                <!-- CTA Button -->
-                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a class="btn btn-danger btn-sm px-3 fw-600" href="https://forms.gle/xY2SzGkjFjrqYYJc6" target="_blank">
-                        <i class="fas fa-calendar-check me-2"></i>Book Appointment
-                    </a>
-                </li>
             </ul>
+
+            <!-- Contact + CTA -->
+            <div class="navbar-cta ms-lg-3 mt-3 mt-lg-0 text-end">
+                <div class="navbar-contact mb-2">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <i class="fas fa-map-marker-alt me-2 text-muted"></i>
+                        <span class="small text-muted">1B Rudolf Street, Maitama, Abuja</span>
+                    </div>
+                    <div class="small text-muted">+234 805 544 4565</div>
+                </div>
+                <a class="btn btn-danger btn-sm px-3 fw-600" href="https://forms.gle/xY2SzGkjFjrqYYJc6" target="_blank">
+                    <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -82,9 +83,23 @@
     padding: 0.75rem 0;
 }
 
+.navbar-shell {
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+}
+
 .navbar-brand {
     font-size: 1.25rem;
+    margin-right: 1rem;
     text-decoration: none;
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+}
+
+.navbar-nav {
+    gap: 0.1rem;
 }
 
 .brand-text {
@@ -99,6 +114,9 @@
 
 .nav-link {
     color: #333 !important;
+    font-size: 0.92rem;
+    padding-left: 0.45rem !important;
+    padding-right: 0.45rem !important;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -121,6 +139,18 @@
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.navbar-cta {
+    flex-shrink: 0;
+}
+
+.navbar-contact {
+    line-height: 1.25;
+}
+
+.navbar-contact .small {
+    font-size: 0.76rem;
 }
 
 .dropdown-menu {
@@ -165,6 +195,11 @@
         height: 40px !important;
     }
 
+    .navbar-shell {
+        padding-left: 0.35rem;
+        padding-right: 0.75rem;
+    }
+
     .brand-text {
         font-size: 16px !important;
     }
@@ -176,19 +211,9 @@
     .nav-link::after {
         display: none;
     }
-    
-    .navbar .d-flex.flex-column {
-        align-items: center !important;
-    }
-    
-    .navbar .d-flex.align-items-center.mb-1 {
-        margin-bottom: 0.25rem !important;
-        font-size: 0.75rem !important;
-        text-align: center !important;
-    }
-    
-    .navbar .d-flex.align-items-center.mb-1 .small {
-        font-size: 0.7rem !important;
+
+    .navbar-contact .small {
+        font-size: 0.72rem;
     }
 }
 </style>

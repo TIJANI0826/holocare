@@ -825,6 +825,36 @@
     opacity: 0 !important;
 }
 
+#testimonialCarousel {
+    overflow: visible;
+}
+
+#testimonialCarousel .carousel-item {
+    background-attachment: initial;
+}
+
+#testimonialCarousel .carousel-item::before {
+    content: none !important;
+    display: none !important;
+}
+
+#testimonialCarousel .card {
+    position: relative;
+    z-index: 2;
+    background: #ffffff !important;
+}
+
+#testimonialCarousel .card-body,
+#testimonialCarousel .card-footer {
+    position: relative;
+    z-index: 3;
+}
+
+#testimonialCarousel .lead {
+    color: #212529 !important;
+    font-weight: 500;
+}
+
 /* Remove dark caption background only in the Patient Stories carousel */
 #testimonialCarousel .carousel-caption {
     background: none !important;
@@ -1063,11 +1093,11 @@
 }
 
 #testimonialCarousel .carousel-control-prev {
-    left: -70px !important;
+    left: -58px !important;
 }
 
 #testimonialCarousel .carousel-control-next {
-    right: -70px !important;
+    right: -58px !important;
 }
 
 #testimonialCarousel .carousel-control-prev:hover,
@@ -1210,11 +1240,11 @@
                         <p class="text-white-50 mb-4" style="font-size: 1rem; line-height: 1.6;">Every patient receives individualized attention and evidence-based treatment tailored to their unique health needs.</p>
                         <div class="row g-4 w-100 justify-content-center">
                             <div class="col-sm-6 col-12 text-center">
-                                <div class="fw-bold" style="font-size: 1.5rem;">17,700+</div>
+                                <div class="fw-bold" style="font-size: 1.5rem;">29,240+</div>
                                 <small class="text-white-75">Minutes of HBOT sessions delivered</small>
                             </div>
                             <div class="col-sm-6 col-12 text-center">
-                                <div class="fw-bold" style="font-size: 1.5rem;">1,767+</div>
+                                <div class="fw-bold" style="font-size: 1.5rem;">1,962+</div>
                                 <small class="text-white-75">Laboratory investigations conducted</small>
                             </div>
                         </div>
