@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Page
-from apps.providers.models import Provider
+from apps.providers.models import Provider, Team
 
 
 class PageViewSet(viewsets.ReadOnlyModelViewSet):
@@ -49,9 +49,10 @@ def page_detail(request, slug):
         template_name = static_pages[slug]
         context = {'slug': slug, 'page': None}
     
-    # Add providers context for appointments page
-    if slug == 'appointments':
-        context['providers'] = Provider.objects.filter(is_active=True)
+    # Add providers context for appointments and providers pages
+    if slug in ['appointments', 'providers']:
+        context['providers'] = Provider.objects.filter(is_active=True).order_by('-is_featured', 'last_name')
+        context['teams'] = Team.objects.filter(is_active=True).prefetch_related('providers').order_by('order', 'name')
     
     return render(request, template_name, context)
 
