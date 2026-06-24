@@ -11,7 +11,7 @@ class TeamAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Team Information', {
-            'fields': ('name', 'description', 'photo')
+            'fields': ('name', 'position', 'description', 'photo')
         }),
         ('Display Settings', {
             'fields': ('order', 'is_active')

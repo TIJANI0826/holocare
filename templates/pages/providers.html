@@ -7,7 +7,7 @@
 {% block content %}
 <!-- Hero Section -->
 <div class="providers-hero text-white py-3"
-    style="background-image: url('{% static 'images/breadcrumbs/ourteambackground.jpeg' %}'); background-size: cover; background-position: center; position: relative; min-height: 300px; display: flex; align-items: center;">
+    style="background-image: url('{% static 'images/breadcrumbs/aboutusbackground.jpg' %}'); background-size: cover; background-position: center; position: relative; min-height: 300px; display: flex; align-items: center;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;">
     </div>
     <div class="container" style="position: relative; z-index: 2;">
@@ -18,262 +18,27 @@
 </div>
 
 <!-- Meet Our Team Section -->
-<div class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
-    <div class="container">
-        <section>
-            <div class="text-center mb-5">
-                <h2 class="mb-3 fw-bold" style="color: var(--primary-color);">Meet Our Team</h2>
-                <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">
-                    Our world-class team of functional medicine specialists, diagnostic consultants, and therapy experts
-                    work together to identify and treat the root cause of your chronic health conditions through
-                    advanced laboratory services, HBOT therapy, and innovative therapies like Red Light and PEMF.
-                </p>
-            </div>
-
-            <!-- Team Cards Section -->
-            <div class="row g-4 justify-content-center">
-                {% if teams %}
-                <!-- Teams as Cards -->
-                {% for team in teams %}
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-lg hover-lift"
-                        style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
-                        <div
-                            style="height: 280px; overflow: hidden; position: relative; background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);">
-                            {% if team.photo %}
-                            <img src="{{ team.photo.url }}" alt="{{ team.name }}" class="w-100 h-100"
-                                style="object-fit: cover; transition: transform 0.4s ease;">
-                            {% else %}
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center">
-                                <i class="fas fa-users" style="font-size: 3rem; color: #ccc;"></i>
-                            </div>
-                            {% endif %}
-                            <div class="overlay"
-                                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;">
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">
-                                {{ team.name }}</h5>
-                            <!-- <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
-                                {% if team.description %}
-                                {{ team.description|truncatewords:15 }}
-                                {% else %}
-                                Our dedicated team of professionals specializing in healthcare excellence and patient
-                                care.
-                                {% endif %}
-                            </p> -->
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                                <!-- <span class="badge bg-info-subtle text-info px-2 py-1 rounded-pill"
-                                    style="font-size: 0.8rem;">
-                                    <i class="fas fa-users me-1"></i>{{ team.providers.count }} Members
-                                </span> -->
-                                {% if team.providers.exists %}
-                                <!-- <a href="#team-{{ team.id }}"
-                                    class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill text-decoration-none"
-                                    style="font-size: 0.8rem;">
-                                    <i class="fas fa-arrow-down me-1"></i>View Team
-                                </a> -->
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-
-            <!-- Team Members Sections -->
-            <div class="row g-4 justify-content-center w-100">
-                {% for team in teams %}
-                {% if team.providers.exists %}
-                <div class="col-12 mt-5 pt-3" id="team-{{ team.id }}">
-                    <div class="mb-4">
-                        <h3 class="fw-bold mb-2" style="color: var(--primary-color);">{{ team.name }} Members</h3>
-                        {% if team.description %}
-                        <!-- <p class="text-muted">{{ team.description }}</p> -->
-                        {% endif %}
-                    </div>
-                    <div class="row g-4">
-                        {% for provider in team.providers.all %}
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-lg hover-lift"
-                                style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
-                                <div
-                                    style="height: 280px; overflow: hidden; position: relative; background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);">
-                                    {% if provider.photo %}
-                                    <img src="{{ provider.photo.url }}" alt="{{ provider.get_full_name }}"
-                                        class="w-100 h-100" style="object-fit: cover; transition: transform 0.4s ease;">
-                                    {% else %}
-                                    <div class="w-100 h-100 d-flex align-items-center justify-content-center">
-                                        <i class="fas fa-user-md" style="font-size: 3rem; color: #ccc;"></i>
-                                    </div>
-                                    {% endif %}
-                                    <div class="overlay"
-                                        style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;">
-                                    </div>
-                                </div>
-                                <div class="card-body p-4">
-                                    <h5 class="card-title fw-bold mb-2"
-                                        style="color: var(--primary-color); font-size: 1.2rem;">{{
-                                        provider.get_full_name }}</h5>
-                                    <p class="card-text small fw-600 mb-3"
-                                        style="color: var(--secondary-color); font-size: 0.9rem;">
-                                        <i class="fas fa-stethoscope me-2"></i>{{ provider.specialty.name }}
-                                    </p>
-                                    <p class="card-text small text-muted mb-3"
-                                        style="font-size: 0.9rem; line-height: 1.5;">
-                                        {% if provider.bio %}
-                                        {{ provider.bio|truncatewords:20 }}
-                                        {% else %}
-                                        {{ provider.specialty.name }} specialist with extensive experience in patient
-                                        care and treatment.
-                                        {% endif %}
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                                        {% if provider.years_of_experience %}
-                                        <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill"
-                                            style="font-size: 0.8rem;">
-                                            <i class="fas fa-briefcase me-1"></i>{{ provider.years_of_experience }} yrs
-                                            exp
-                                        </span>
-                                        {% endif %}
-                                        <a href="mailto:{{ provider.email }}"
-                                            class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill text-decoration-none"
-                                            style="font-size: 0.8rem;">
-                                            <i class="fas fa-envelope me-1"></i>Contact
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-    </div>
-
-    {% with individual_providers=providers %}
-    {% if individual_providers %}
-    <div class="col-12 mt-5">
-        <!-- <h3 class="fw-bold mb-4" style="color: var(--primary-color);">Other Healthcare Professionals</h3> -->
-        <div class="row g-4">
-            {% for provider in individual_providers %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-lg hover-lift"
-                    style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
-                    <div
-                        style="height: 280px; overflow: hidden; position: relative; background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);">
-                        {% if provider.photo %}
-                        <img src="{{ provider.photo.url }}" alt="{{ provider.get_full_name }}" class="w-100 h-102"
-                            style="object-fit: cover; transition: transform 0.4s ease;">
-                        {% else %}
-                        <div class="w-100 h-100 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-user-md" style="font-size: 3rem; color: #ccc;"></i>
-                        </div>
-                        {% endif %}
-                        <div class="overlay"
-                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;">
-                        </div>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">{{ provider.get_full_name }}</h5>
-                        <p class="card-text small fw-600 mb-3"
-                            style="color: var(--secondary-color); font-size: 0.9rem;">
-                            <i class="fas fa-stethoscope me-2"></i>{{ provider.specialty.name }}
-                        </p>
-                        <!-- <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
-                            {% if provider.bio %}
-                            {{ provider.bio|truncatewords:20 }}
-                            {% else %}
-                            {{ provider.specialty.name }} specialist with extensive experience in patient care and
-                            treatment.
-                            {% endif %}
-                        </p> -->
-                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                            {% if provider.years_of_experience %}
-                            <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill"
-                                style="font-size: 0.8rem;">
-                                <i class="fas fa-briefcase me-1"></i>{{ provider.years_of_experience }} yrs exp
-                            </span>
-                            {% endif %}
-                            <!-- <a href="mailto:{{ provider.email }}"
-                                class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill text-decoration-none"
-                                style="font-size: 0.8rem;">
-                                <i class="fas fa-envelope me-1"></i>Contact
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-12 text-center mb-4">
+            <h2 class="fw-bold" style="color: var(--primary-color);">Our Team</h2>
+            <p class="text-muted">Our world-class team of functional medicine specialists, diagnostic consultants, and therapy experts work together to identify and treat the root cause of your chronic health conditions through advanced laboratory services, HBOT therapy, and innovative therapies like Red Light and PEMF.</p>
         </div>
-    </div>
-    {% endif %}
-    {% endwith %}
-    {% elif providers %}
-    <!-- Fallback: Show all providers if no teams exist -->
-    {% for provider in providers %}
-    <div class="col-md-6 col-lg-4">
-        <div class="card h-100 border-0 shadow-lg hover-lift"
-            style="border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
-            <div
-                style="height: 280px; overflow: hidden; position: relative; background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);">
-                {% if provider.photo %}
-                <img src="{{ provider.photo.url }}" alt="{{ provider.get_full_name }}" class="w-100 h-100"
-                    style="object-fit: cover; transition: transform 0.4s ease;">
-                {% else %}
-                <div class="w-100 h-100 d-flex align-items-center justify-content-center">
-                    <i class="fas fa-user-md" style="font-size: 3rem; color: #ccc;"></i>
-                </div>
-                {% endif %}
-                <div class="overlay"
-                    style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(221, 39, 39, 0.1) 0%, rgba(221, 39, 39, 0.05) 100%); opacity: 0; transition: opacity 0.4s ease;">
-                </div>
-            </div>
-            <div class="card-body p-4">
-                <h5 class="card-title fw-bold mb-2" style="color: var(--primary-color); font-size: 1.2rem;">{{
-                    provider.get_full_name }}</h5>
-                <p class="card-text small fw-600 mb-3" style="color: var(--secondary-color); font-size: 0.9rem;">
-                    <i class="fas fa-stethoscope me-2"></i>{{ provider.specialty.name }}
-                </p>
-                <p class="card-text small text-muted mb-3" style="font-size: 0.9rem; line-height: 1.5;">
-                    {% if provider.bio %}
-                    {{ provider.bio|truncatewords:20 }}
+        {% for team in teams %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <img src="{{ team.photo.url }}" class="img-fluid" alt="{{ team.name }}" style="height: 310px; object-fit: fit; width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: var(--primary-color);"> {{ team.name }} </h5>
+                    {% if team.position %}
+                    <p class="text-muted">{{ team.position }}</p>
                     {% else %}
-                    {{ provider.specialty.name }} specialist with extensive experience in patient care and treatment.
+                    <p class="text-muted">Team Members</p>
                     {% endif %}
-                </p>
-                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                    {% if provider.years_of_experience %}
-                    <span class="badge bg-success-subtle text-success px-2 py-1 rounded-pill"
-                        style="font-size: 0.8rem;">
-                        <i class="fas fa-briefcase me-1"></i>{{ provider.years_of_experience }} yrs exp
-                    </span>
-                    {% endif %}
-                    <a href="mailto:{{ provider.email }}"
-                        class="badge bg-primary-subtle text-primary px-2 py-1 rounded-pill text-decoration-none"
-                        style="font-size: 0.8rem;">
-                        <i class="fas fa-envelope me-1"></i>Contact
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
-    {% else %}
-    <div class="col-12 text-center py-5">
-        <div style="color: #6c757d;">
-            <i class="fas fa-users" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem; display: block;"></i>
-            <p class="mb-0">No healthcare providers available at this time.</p>
-        </div>
-    </div>
-    {% endif %}
-</div>
-</section>
-</div>
-</div>
+        {% endfor %}
 
 <style>
     .provider-card {

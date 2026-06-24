@@ -7,6 +7,7 @@ from django.core.validators import URLValidator
 class Team(models.Model):
     """Healthcare team/department model."""
     name = models.CharField(max_length=200, help_text="Team or department name")
+    position = models.CharField(max_length=200, help_text="Position or role of the team within the organization", blank=True)
     description = models.TextField(blank=True, help_text="Team description and overview")
     photo = models.ImageField(upload_to='teams/', blank=True, help_text="Team group photo")
     order = models.IntegerField(default=0, help_text="Display order on providers page")
@@ -28,7 +29,7 @@ class Team(models.Model):
 
 class Provider(models.Model):
     """Doctor/Healthcare Provider model."""
-    first_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100)
     specialty = models.ForeignKey(Specialty, on_delete=models.PROTECT, related_name='providers')
     team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, blank=True, related_name='providers', help_text="Team or department this provider belongs to")
