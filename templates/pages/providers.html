@@ -27,7 +27,9 @@
         {% for team in teams %}
         <div class="col-md-6 col-lg-4">
             <div class="card border-0 shadow-lg overflow-hidden">
-                <img src="{{ team.photo.url }}" class="img-fluid" alt="{{ team.name }}" style="height: 310px; object-fit: fit; width: 100%;">
+                <div class="team-photo-wrap">
+                    <img src="{{ team.photo.url }}" class="team-photo" alt="{{ team.name }}">
+                </div>
                 <div class="card-body">
                     <h5 class="card-title fw-bold" style="color: var(--primary-color);"> {{ team.name }} </h5>
                     {% if team.position %}
@@ -39,29 +41,6 @@
             </div>
         </div>
         {% endfor %}
-
-<style>
-    .provider-card {
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .provider-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15) !important;
-    }
-
-    .provider-image-wrapper {
-        border-radius: 10px 10px 0 0;
-        background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
-    }
-
-    .card-title {
-        color: var(--primary-dark);
-    }
-
-    .fw-600 {
-        font-weight: 600;
-    }
-</style>
+    </div>
+</div>
 {% endblock %}
